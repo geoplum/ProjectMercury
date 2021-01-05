@@ -1,0 +1,731 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C728A47825A0F35F0000C98C /* LostMoneyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C728A47725A0F35F0000C98C /* LostMoneyDetailViewController.swift */; };
+		C728A47C25A0F3730000C98C /* CashbackDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C728A47B25A0F3730000C98C /* CashbackDetailViewController.swift */; };
+		C728A48825A105070000C98C /* PocketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C728A48725A105070000C98C /* PocketsViewController.swift */; };
+		C728A48B25A105530000C98C /* InvestmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C728A48A25A105530000C98C /* InvestmentsViewController.swift */; };
+		C728A48F25A106B80000C98C /* InviteFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C728A48E25A106B80000C98C /* InviteFriendsViewController.swift */; };
+		C728A4AA25A10F6D0000C98C /* NavigationRoutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C728A4A925A10F6D0000C98C /* NavigationRoutable.swift */; };
+		C728A4B025A113E20000C98C /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C728A4AF25A113E20000C98C /* DataStore.swift */; };
+		C776E26025859A68005A9CBE /* RemoteNotificationsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C776E25F25859A68005A9CBE /* RemoteNotificationsConfigurator.swift */; };
+		C792FC852586C44D0078BFCB /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C792FC842586C44D0078BFCB /* NavigationController.swift */; };
+		C792FC882586C4740078BFCB /* TabBarEmbeddable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C792FC872586C4740078BFCB /* TabBarEmbeddable.swift */; };
+		C792FC8C2586C4DC0078BFCB /* NavigationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C792FC8B2586C4DC0078BFCB /* NavigationPresenter.swift */; };
+		C792FC9B2586C71A0078BFCB /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C792FC9A2586C71A0078BFCB /* HomeRouter.swift */; };
+		C792FCA12586C8810078BFCB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C792FCA02586C8810078BFCB /* HomeViewController.swift */; };
+		C792FCA62586C9310078BFCB /* LostMoneyRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C792FCA52586C9310078BFCB /* LostMoneyRouter.swift */; };
+		C792FCA92586C9400078BFCB /* CashBackRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C792FCA82586C9400078BFCB /* CashBackRouter.swift */; };
+		C792FCAC2586C9980078BFCB /* CashBackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C792FCAB2586C9980078BFCB /* CashBackViewController.swift */; };
+		C792FCAF2586C9C20078BFCB /* LostMoneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C792FCAE2586C9C20078BFCB /* LostMoneyViewController.swift */; };
+		C7CFA11925A12B3000EFE411 /* EventPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CFA11825A12B3000EFE411 /* EventPublisher.swift */; };
+		C7CFA12125A12FCD00EFE411 /* UIControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CFA12025A12FCD00EFE411 /* UIControl.swift */; };
+		C7E3F94725A118350045E491 /* AppPathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E3F94625A118350045E491 /* AppPathTests.swift */; };
+		C7E3F95625A1189F0045E491 /* MockRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E3F95525A1189F0045E491 /* MockRouter.swift */; };
+		C7F24BB3258588030031A989 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F24BB2258588030031A989 /* AppDelegate.swift */; };
+		C7F24BB5258588030031A989 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F24BB4258588030031A989 /* SceneDelegate.swift */; };
+		C7F24BB9258588040031A989 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7F24BB8258588040031A989 /* Assets.xcassets */; };
+		C7F24BBC258588040031A989 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7F24BBB258588040031A989 /* Preview Assets.xcassets */; };
+		C7F24BBF258588040031A989 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7F24BBD258588040031A989 /* LaunchScreen.storyboard */; };
+		C7F24BCC25858A850031A989 /* AppDelegateStateTransitionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F24BCB25858A850031A989 /* AppDelegateStateTransitionable.swift */; };
+		C7F24BD025858AB40031A989 /* AppDelegateConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F24BCF25858AB40031A989 /* AppDelegateConfigurable.swift */; };
+		C7F24BD325858AD90031A989 /* AppUIConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F24BD225858AD90031A989 /* AppUIConfigurator.swift */; };
+		C7F24BDC25858BAB0031A989 /* AppPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F24BDB25858BAB0031A989 /* AppPath.swift */; };
+		C7F24BE025858BBC0031A989 /* RouteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F24BDF25858BBC0031A989 /* RouteData.swift */; };
+		C7F24BE325858BE90031A989 /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F24BE225858BE90031A989 /* RootRouter.swift */; };
+		C7F24BE725858C280031A989 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F24BE625858C280031A989 /* Coordinator.swift */; };
+		C7F24BEC25858DA40031A989 /* Array+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F24BEB25858DA40031A989 /* Array+Ext.swift */; };
+		C7F24BF52585914E0031A989 /* AppDelegateURLHandleable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F24BF42585914E0031A989 /* AppDelegateURLHandleable.swift */; };
+		C7F24BF92585928D0031A989 /* URLHandleable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F24BF82585928D0031A989 /* URLHandleable.swift */; };
+		C7F24BFF258595A20031A989 /* DeepLinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F24BFE258595A20031A989 /* DeepLinkHandler.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C7E3F94925A118350045E491 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7F24BA7258588030031A989 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C7F24BAE258588030031A989;
+			remoteInfo = ProjectMercury;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C728A47725A0F35F0000C98C /* LostMoneyDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LostMoneyDetailViewController.swift; sourceTree = "<group>"; };
+		C728A47B25A0F3730000C98C /* CashbackDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashbackDetailViewController.swift; sourceTree = "<group>"; };
+		C728A48725A105070000C98C /* PocketsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PocketsViewController.swift; sourceTree = "<group>"; };
+		C728A48A25A105530000C98C /* InvestmentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentsViewController.swift; sourceTree = "<group>"; };
+		C728A48E25A106B80000C98C /* InviteFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteFriendsViewController.swift; sourceTree = "<group>"; };
+		C728A4A925A10F6D0000C98C /* NavigationRoutable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationRoutable.swift; sourceTree = "<group>"; };
+		C728A4AF25A113E20000C98C /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
+		C776E25F25859A68005A9CBE /* RemoteNotificationsConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteNotificationsConfigurator.swift; sourceTree = "<group>"; };
+		C792FC842586C44D0078BFCB /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		C792FC872586C4740078BFCB /* TabBarEmbeddable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarEmbeddable.swift; sourceTree = "<group>"; };
+		C792FC8B2586C4DC0078BFCB /* NavigationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationPresenter.swift; sourceTree = "<group>"; };
+		C792FC9A2586C71A0078BFCB /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
+		C792FCA02586C8810078BFCB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		C792FCA52586C9310078BFCB /* LostMoneyRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LostMoneyRouter.swift; sourceTree = "<group>"; };
+		C792FCA82586C9400078BFCB /* CashBackRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashBackRouter.swift; sourceTree = "<group>"; };
+		C792FCAB2586C9980078BFCB /* CashBackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashBackViewController.swift; sourceTree = "<group>"; };
+		C792FCAE2586C9C20078BFCB /* LostMoneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LostMoneyViewController.swift; sourceTree = "<group>"; };
+		C7CFA11825A12B3000EFE411 /* EventPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventPublisher.swift; sourceTree = "<group>"; };
+		C7CFA12025A12FCD00EFE411 /* UIControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIControl.swift; sourceTree = "<group>"; };
+		C7E3F94425A118350045E491 /* ProjectMercuryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProjectMercuryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7E3F94625A118350045E491 /* AppPathTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPathTests.swift; sourceTree = "<group>"; };
+		C7E3F94825A118350045E491 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C7E3F95525A1189F0045E491 /* MockRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRouter.swift; sourceTree = "<group>"; };
+		C7F24BAF258588030031A989 /* ProjectMercury.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectMercury.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7F24BB2258588030031A989 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C7F24BB4258588030031A989 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		C7F24BB8258588040031A989 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C7F24BBB258588040031A989 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C7F24BBE258588040031A989 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C7F24BC0258588040031A989 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C7F24BCB25858A850031A989 /* AppDelegateStateTransitionable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateStateTransitionable.swift; sourceTree = "<group>"; };
+		C7F24BCF25858AB40031A989 /* AppDelegateConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateConfigurable.swift; sourceTree = "<group>"; };
+		C7F24BD225858AD90031A989 /* AppUIConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUIConfigurator.swift; sourceTree = "<group>"; };
+		C7F24BDB25858BAB0031A989 /* AppPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPath.swift; sourceTree = "<group>"; };
+		C7F24BDF25858BBC0031A989 /* RouteData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteData.swift; sourceTree = "<group>"; };
+		C7F24BE225858BE90031A989 /* RootRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootRouter.swift; sourceTree = "<group>"; };
+		C7F24BE625858C280031A989 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		C7F24BEB25858DA40031A989 /* Array+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Ext.swift"; sourceTree = "<group>"; };
+		C7F24BF42585914E0031A989 /* AppDelegateURLHandleable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateURLHandleable.swift; sourceTree = "<group>"; };
+		C7F24BF82585928D0031A989 /* URLHandleable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLHandleable.swift; sourceTree = "<group>"; };
+		C7F24BFE258595A20031A989 /* DeepLinkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkHandler.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C7E3F94125A118350045E491 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C7F24BAC258588030031A989 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C728A48325A0FAEE0000C98C /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				C792FCA02586C8810078BFCB /* HomeViewController.swift */,
+				C728A48725A105070000C98C /* PocketsViewController.swift */,
+				C728A48A25A105530000C98C /* InvestmentsViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		C728A48425A0FAF50000C98C /* Lost Money */ = {
+			isa = PBXGroup;
+			children = (
+				C792FCAE2586C9C20078BFCB /* LostMoneyViewController.swift */,
+				C728A47725A0F35F0000C98C /* LostMoneyDetailViewController.swift */,
+			);
+			path = "Lost Money";
+			sourceTree = "<group>";
+		};
+		C728A48525A0FB030000C98C /* Cashback */ = {
+			isa = PBXGroup;
+			children = (
+				C792FCAB2586C9980078BFCB /* CashBackViewController.swift */,
+				C728A47B25A0F3730000C98C /* CashbackDetailViewController.swift */,
+			);
+			path = Cashback;
+			sourceTree = "<group>";
+		};
+		C728A48D25A106930000C98C /* Invite A Friend */ = {
+			isa = PBXGroup;
+			children = (
+				C728A48E25A106B80000C98C /* InviteFriendsViewController.swift */,
+			);
+			path = "Invite A Friend";
+			sourceTree = "<group>";
+		};
+		C728A4A625A10E090000C98C /* Routers */ = {
+			isa = PBXGroup;
+			children = (
+				C7F24BE225858BE90031A989 /* RootRouter.swift */,
+				C792FC992586C7000078BFCB /* Home */,
+				C792FCA32586C9000078BFCB /* LostMoney */,
+				C792FCA42586C90C0078BFCB /* CashBack */,
+			);
+			path = Routers;
+			sourceTree = "<group>";
+		};
+		C728A4AE25A113590000C98C /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				C728A4AF25A113E20000C98C /* DataStore.swift */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
+		C792FC992586C7000078BFCB /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				C792FC9A2586C71A0078BFCB /* HomeRouter.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		C792FC9E2586C7D70078BFCB /* MainFlow */ = {
+			isa = PBXGroup;
+			children = (
+				C728A48325A0FAEE0000C98C /* Home */,
+				C728A48425A0FAF50000C98C /* Lost Money */,
+				C728A48525A0FB030000C98C /* Cashback */,
+				C728A48D25A106930000C98C /* Invite A Friend */,
+			);
+			path = MainFlow;
+			sourceTree = "<group>";
+		};
+		C792FCA32586C9000078BFCB /* LostMoney */ = {
+			isa = PBXGroup;
+			children = (
+				C792FCA52586C9310078BFCB /* LostMoneyRouter.swift */,
+			);
+			path = LostMoney;
+			sourceTree = "<group>";
+		};
+		C792FCA42586C90C0078BFCB /* CashBack */ = {
+			isa = PBXGroup;
+			children = (
+				C792FCA82586C9400078BFCB /* CashBackRouter.swift */,
+			);
+			path = CashBack;
+			sourceTree = "<group>";
+		};
+		C7CFA11725A12B1F00EFE411 /* UIControl */ = {
+			isa = PBXGroup;
+			children = (
+				C7CFA11825A12B3000EFE411 /* EventPublisher.swift */,
+				C7CFA12025A12FCD00EFE411 /* UIControl.swift */,
+			);
+			path = UIControl;
+			sourceTree = "<group>";
+		};
+		C7E3F94525A118350045E491 /* ProjectMercuryTests */ = {
+			isa = PBXGroup;
+			children = (
+				C7E3F94625A118350045E491 /* AppPathTests.swift */,
+				C7E3F95525A1189F0045E491 /* MockRouter.swift */,
+				C7E3F94825A118350045E491 /* Info.plist */,
+			);
+			path = ProjectMercuryTests;
+			sourceTree = "<group>";
+		};
+		C7F24BA6258588030031A989 = {
+			isa = PBXGroup;
+			children = (
+				C7F24BB1258588030031A989 /* ProjectMercury */,
+				C7E3F94525A118350045E491 /* ProjectMercuryTests */,
+				C7F24BB0258588030031A989 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C7F24BB0258588030031A989 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C7F24BAF258588030031A989 /* ProjectMercury.app */,
+				C7E3F94425A118350045E491 /* ProjectMercuryTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C7F24BB1258588030031A989 /* ProjectMercury */ = {
+			isa = PBXGroup;
+			children = (
+				C7F24BC7258589F00031A989 /* AppDelegate */,
+				C7F24BD525858B710031A989 /* Routing */,
+				C7F24BEA25858D930031A989 /* Extensions */,
+				C792FC9E2586C7D70078BFCB /* MainFlow */,
+				C7F24BB8258588040031A989 /* Assets.xcassets */,
+				C7F24BBD258588040031A989 /* LaunchScreen.storyboard */,
+				C7F24BC0258588040031A989 /* Info.plist */,
+				C7F24BBA258588040031A989 /* Preview Content */,
+			);
+			path = ProjectMercury;
+			sourceTree = "<group>";
+		};
+		C7F24BBA258588040031A989 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				C7F24BBB258588040031A989 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C7F24BC7258589F00031A989 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				C7F24BB2258588030031A989 /* AppDelegate.swift */,
+				C7F24BB4258588030031A989 /* SceneDelegate.swift */,
+				C7F24BC825858A070031A989 /* Configurators */,
+				C7F24BCA25858A450031A989 /* Handlers */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		C7F24BC825858A070031A989 /* Configurators */ = {
+			isa = PBXGroup;
+			children = (
+				C7F24BCF25858AB40031A989 /* AppDelegateConfigurable.swift */,
+				C7F24BD225858AD90031A989 /* AppUIConfigurator.swift */,
+				C776E25F25859A68005A9CBE /* RemoteNotificationsConfigurator.swift */,
+			);
+			path = Configurators;
+			sourceTree = "<group>";
+		};
+		C7F24BCA25858A450031A989 /* Handlers */ = {
+			isa = PBXGroup;
+			children = (
+				C7F24BF82585928D0031A989 /* URLHandleable.swift */,
+				C7F24BF42585914E0031A989 /* AppDelegateURLHandleable.swift */,
+				C7F24BCB25858A850031A989 /* AppDelegateStateTransitionable.swift */,
+				C7F24BFE258595A20031A989 /* DeepLinkHandler.swift */,
+			);
+			path = Handlers;
+			sourceTree = "<group>";
+		};
+		C7F24BD525858B710031A989 /* Routing */ = {
+			isa = PBXGroup;
+			children = (
+				C728A4AE25A113590000C98C /* Store */,
+				C728A4A625A10E090000C98C /* Routers */,
+				C7F24BE525858C1C0031A989 /* Navigation */,
+				C7F24BDB25858BAB0031A989 /* AppPath.swift */,
+				C7F24BDF25858BBC0031A989 /* RouteData.swift */,
+			);
+			path = Routing;
+			sourceTree = "<group>";
+		};
+		C7F24BE525858C1C0031A989 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				C7F24BE625858C280031A989 /* Coordinator.swift */,
+				C792FC872586C4740078BFCB /* TabBarEmbeddable.swift */,
+				C728A4A925A10F6D0000C98C /* NavigationRoutable.swift */,
+				C792FC8B2586C4DC0078BFCB /* NavigationPresenter.swift */,
+				C792FC842586C44D0078BFCB /* NavigationController.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		C7F24BEA25858D930031A989 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C7CFA11725A12B1F00EFE411 /* UIControl */,
+				C7F24BEB25858DA40031A989 /* Array+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C7E3F94325A118350045E491 /* ProjectMercuryTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C7E3F94D25A118350045E491 /* Build configuration list for PBXNativeTarget "ProjectMercuryTests" */;
+			buildPhases = (
+				C7E3F94025A118350045E491 /* Sources */,
+				C7E3F94125A118350045E491 /* Frameworks */,
+				C7E3F94225A118350045E491 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C7E3F94A25A118350045E491 /* PBXTargetDependency */,
+			);
+			name = ProjectMercuryTests;
+			productName = ProjectMercuryTests;
+			productReference = C7E3F94425A118350045E491 /* ProjectMercuryTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C7F24BAE258588030031A989 /* ProjectMercury */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C7F24BC3258588040031A989 /* Build configuration list for PBXNativeTarget "ProjectMercury" */;
+			buildPhases = (
+				C7F24BAB258588030031A989 /* Sources */,
+				C7F24BAC258588030031A989 /* Frameworks */,
+				C7F24BAD258588030031A989 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ProjectMercury;
+			productName = ProjectMercury;
+			productReference = C7F24BAF258588030031A989 /* ProjectMercury.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C7F24BA7258588030031A989 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1230;
+				LastUpgradeCheck = 1220;
+				TargetAttributes = {
+					C7E3F94325A118350045E491 = {
+						CreatedOnToolsVersion = 12.3;
+						TestTargetID = C7F24BAE258588030031A989;
+					};
+					C7F24BAE258588030031A989 = {
+						CreatedOnToolsVersion = 12.2;
+					};
+				};
+			};
+			buildConfigurationList = C7F24BAA258588030031A989 /* Build configuration list for PBXProject "ProjectMercury" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C7F24BA6258588030031A989;
+			productRefGroup = C7F24BB0258588030031A989 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C7F24BAE258588030031A989 /* ProjectMercury */,
+				C7E3F94325A118350045E491 /* ProjectMercuryTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C7E3F94225A118350045E491 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C7F24BAD258588030031A989 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7F24BBF258588040031A989 /* LaunchScreen.storyboard in Resources */,
+				C7F24BBC258588040031A989 /* Preview Assets.xcassets in Resources */,
+				C7F24BB9258588040031A989 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C7E3F94025A118350045E491 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7E3F95625A1189F0045E491 /* MockRouter.swift in Sources */,
+				C7E3F94725A118350045E491 /* AppPathTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C7F24BAB258588030031A989 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C728A47825A0F35F0000C98C /* LostMoneyDetailViewController.swift in Sources */,
+				C728A48B25A105530000C98C /* InvestmentsViewController.swift in Sources */,
+				C792FCA62586C9310078BFCB /* LostMoneyRouter.swift in Sources */,
+				C792FCAF2586C9C20078BFCB /* LostMoneyViewController.swift in Sources */,
+				C792FC8C2586C4DC0078BFCB /* NavigationPresenter.swift in Sources */,
+				C7F24BF92585928D0031A989 /* URLHandleable.swift in Sources */,
+				C7F24BD325858AD90031A989 /* AppUIConfigurator.swift in Sources */,
+				C7F24BFF258595A20031A989 /* DeepLinkHandler.swift in Sources */,
+				C7F24BB3258588030031A989 /* AppDelegate.swift in Sources */,
+				C7CFA12125A12FCD00EFE411 /* UIControl.swift in Sources */,
+				C728A48825A105070000C98C /* PocketsViewController.swift in Sources */,
+				C792FC852586C44D0078BFCB /* NavigationController.swift in Sources */,
+				C792FCAC2586C9980078BFCB /* CashBackViewController.swift in Sources */,
+				C7F24BD025858AB40031A989 /* AppDelegateConfigurable.swift in Sources */,
+				C728A4B025A113E20000C98C /* DataStore.swift in Sources */,
+				C728A48F25A106B80000C98C /* InviteFriendsViewController.swift in Sources */,
+				C7F24BB5258588030031A989 /* SceneDelegate.swift in Sources */,
+				C792FC9B2586C71A0078BFCB /* HomeRouter.swift in Sources */,
+				C728A4AA25A10F6D0000C98C /* NavigationRoutable.swift in Sources */,
+				C7F24BF52585914E0031A989 /* AppDelegateURLHandleable.swift in Sources */,
+				C792FCA92586C9400078BFCB /* CashBackRouter.swift in Sources */,
+				C776E26025859A68005A9CBE /* RemoteNotificationsConfigurator.swift in Sources */,
+				C7F24BE325858BE90031A989 /* RootRouter.swift in Sources */,
+				C7F24BE725858C280031A989 /* Coordinator.swift in Sources */,
+				C7F24BDC25858BAB0031A989 /* AppPath.swift in Sources */,
+				C792FCA12586C8810078BFCB /* HomeViewController.swift in Sources */,
+				C792FC882586C4740078BFCB /* TabBarEmbeddable.swift in Sources */,
+				C7F24BEC25858DA40031A989 /* Array+Ext.swift in Sources */,
+				C728A47C25A0F3730000C98C /* CashbackDetailViewController.swift in Sources */,
+				C7F24BCC25858A850031A989 /* AppDelegateStateTransitionable.swift in Sources */,
+				C7F24BE025858BBC0031A989 /* RouteData.swift in Sources */,
+				C7CFA11925A12B3000EFE411 /* EventPublisher.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C7E3F94A25A118350045E491 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C7F24BAE258588030031A989 /* ProjectMercury */;
+			targetProxy = C7E3F94925A118350045E491 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C7F24BBD258588040031A989 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C7F24BBE258588040031A989 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C7E3F94B25A118350045E491 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ProjectMercuryTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.geo-games.ProjectMercuryTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ProjectMercury.app/ProjectMercury";
+			};
+			name = Debug;
+		};
+		C7E3F94C25A118350045E491 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ProjectMercuryTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.geo-games.ProjectMercuryTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ProjectMercury.app/ProjectMercury";
+			};
+			name = Release;
+		};
+		C7F24BC1258588040031A989 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C7F24BC2258588040031A989 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C7F24BC4258588040031A989 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"ProjectMercury/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = ProjectMercury/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.geo-games.ProjectMercury";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C7F24BC5258588040031A989 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"ProjectMercury/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = ProjectMercury/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.geo-games.ProjectMercury";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C7E3F94D25A118350045E491 /* Build configuration list for PBXNativeTarget "ProjectMercuryTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C7E3F94B25A118350045E491 /* Debug */,
+				C7E3F94C25A118350045E491 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C7F24BAA258588030031A989 /* Build configuration list for PBXProject "ProjectMercury" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C7F24BC1258588040031A989 /* Debug */,
+				C7F24BC2258588040031A989 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C7F24BC3258588040031A989 /* Build configuration list for PBXNativeTarget "ProjectMercury" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C7F24BC4258588040031A989 /* Debug */,
+				C7F24BC5258588040031A989 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C7F24BA7258588030031A989 /* Project object */;
+}
