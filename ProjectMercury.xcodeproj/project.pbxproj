@@ -29,7 +29,6 @@
 		C7E3F94725A118350045E491 /* AppPathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E3F94625A118350045E491 /* AppPathTests.swift */; };
 		C7E3F95625A1189F0045E491 /* MockRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E3F95525A1189F0045E491 /* MockRouter.swift */; };
 		C7F24BB3258588030031A989 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F24BB2258588030031A989 /* AppDelegate.swift */; };
-		C7F24BB5258588030031A989 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F24BB4258588030031A989 /* SceneDelegate.swift */; };
 		C7F24BB9258588040031A989 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7F24BB8258588040031A989 /* Assets.xcassets */; };
 		C7F24BBC258588040031A989 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7F24BBB258588040031A989 /* Preview Assets.xcassets */; };
 		C7F24BBF258588040031A989 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7F24BBD258588040031A989 /* LaunchScreen.storyboard */; };
@@ -82,7 +81,6 @@
 		C7E3F95525A1189F0045E491 /* MockRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRouter.swift; sourceTree = "<group>"; };
 		C7F24BAF258588030031A989 /* ProjectMercury.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectMercury.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7F24BB2258588030031A989 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C7F24BB4258588030031A989 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C7F24BB8258588040031A989 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C7F24BBB258588040031A989 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C7F24BBE258588040031A989 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -272,7 +270,6 @@
 			isa = PBXGroup;
 			children = (
 				C7F24BB2258588030031A989 /* AppDelegate.swift */,
-				C7F24BB4258588030031A989 /* SceneDelegate.swift */,
 				C7F24BC825858A070031A989 /* Configurators */,
 				C7F24BCA25858A450031A989 /* Handlers */,
 			);
@@ -458,7 +455,6 @@
 				C7F24BD025858AB40031A989 /* AppDelegateConfigurable.swift in Sources */,
 				C728A4B025A113E20000C98C /* DataStore.swift in Sources */,
 				C728A48F25A106B80000C98C /* InviteFriendsViewController.swift in Sources */,
-				C7F24BB5258588030031A989 /* SceneDelegate.swift in Sources */,
 				C792FC9B2586C71A0078BFCB /* HomeRouter.swift in Sources */,
 				C728A4AA25A10F6D0000C98C /* NavigationRoutable.swift in Sources */,
 				C7F24BF52585914E0031A989 /* AppDelegateURLHandleable.swift in Sources */,

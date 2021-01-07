@@ -9,5 +9,5 @@ import UIKit
 
 protocol AppDelegateConfigurable: class {
 
-    func configure(_ scene: UIScene, willConnectTo session: UISceneSession)
+    func configure(application: UIApplication, launchOptions: [UIApplication.LaunchOptionsKey: Any]?)
 }

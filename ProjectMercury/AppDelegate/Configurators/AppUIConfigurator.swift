@@ -9,7 +9,7 @@ import UIKit
 
 final class AppUIConfigurator: AppDelegateConfigurable {
     
-    func configure(_ scene: UIScene, willConnectTo session: UISceneSession) {
+    func configure(application: UIApplication, launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
         
         // MARK: - Navigation Bar (default)
         UINavigationBar.appearance(whenContainedInInstancesOf: [NavigationController.self]).isTranslucent = false

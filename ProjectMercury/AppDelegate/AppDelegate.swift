@@ -10,11 +10,17 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    let deepLinkHandler: DeepLinkHandler
-    let remoteNotificationConfigurator: RemoteNotificationsConfigurator
-    let router: RootRouter
+    // MARK: - Internal properties
     
-    var configurators: [AppDelegateConfigurable] {
+    internal var window: UIWindow?
+    
+    // MARK: - private properties
+    
+    private let deepLinkHandler: DeepLinkHandler
+    private let remoteNotificationConfigurator: RemoteNotificationsConfigurator
+    private let router: RootRouter
+    
+    fileprivate var configurators: [AppDelegateConfigurable] {
         return [
             remoteNotificationConfigurator,
             AppUIConfigurator(),
@@ -30,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return [deepLinkHandler]
     }
     
-    var stateHandlers: [AppDelegateStateTransitionable] {
+    fileprivate var stateHandlers: [AppDelegateStateTransitionable] {
         return [remoteNotificationConfigurator]
     }
     
@@ -43,35 +49,75 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        configurators.forEach { (configurator) in
+            configurator.configure(application: application, launchOptions: launchOptions)
+        }
+        
         return true
     }
-
-    // MARK: UISceneSession Lifecycle
-
-    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-        // Called when a new scene session is being created.
-        // Use this method to select a configuration to create the new scene with.
-        return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
+    
+    // MARK: - App Lifecycle
+    
+    func applicationWillResignActive(_ application: UIApplication)
+    {
+        // Called when the scene will move from an active state to an inactive state.
+        // This may occur due to temporary interruptions (ex. an incoming phone call).
     }
-
-    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
-        // Called when the user discards a scene session.
-        // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
-        // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
+    
+    func applicationDidEnterBackground(_ application: UIApplication)
+    {
+        // Called as the scene transitions from the foreground to the background.
+        // Use this method to save data, release shared resources, and store enough scene-specific state information
+        // to restore the scene back to its current state.
+        stateHandlers.forEach { $0.didEnterBackground(application) }
     }
+    
+    func applicationWillEnterForeground(_ application: UIApplication)
+    {
+        // Called as the scene transitions from the background to the foreground.
+        // Use this method to undo the changes made on entering the background.
+        stateHandlers.forEach { $0.willEnterForeground(application) }
+        
+    }
+    
+    func applicationDidBecomeActive(_ application: UIApplication)
+    {
+        // Called when the scene has moved from an inactive state to an active state.
+        // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
+        stateHandlers.forEach { $0.didBecomeActive(application) }
+    }
+        
+    func applicationWillTerminate(_ application: UIApplication)
+    {
+        
+    }
+}
 
+// MARK: - URL Handler
+
+extension AppDelegate {
+    
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any]) -> Bool {
         return urlHandlers.contains { $0.application(app, open: url, options: options) }
     }
+}
 
+// MARK: - Link Handler
+
+extension AppDelegate {
+    
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
         return linkHandlers.contains { $0.application(continue: userActivity, with: restorationHandler) }
     }
+}
+
+// MARK: - Deeplinks
+
+extension AppDelegate {
     
     func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
         deepLinkHandler.handle(shortcutItem, completionHandler: completionHandler)
     }
-    
 }
 
 // MARK: - Push notifications
@@ -85,4 +131,9 @@ extension AppDelegate {
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         remoteNotificationConfigurator.didFailToRegisterForRemoteNotifications(with: error)
     }
+    
+//    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void)
+//    {
+//
+//    }
 }

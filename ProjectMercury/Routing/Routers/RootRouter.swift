@@ -158,13 +158,12 @@ extension RootRouter: AppDelegateConfigurable {
     
     // MARK: - MSMAppDelegateConfigurable
     
-    func configure(_ scene: UIScene, willConnectTo session: UISceneSession) {
-        guard let delegate = scene.delegate as? SceneDelegate, let windowScene = (scene as? UIWindowScene) else { return }
-
-        delegate.window = UIWindow(frame: windowScene.coordinateSpace.bounds)
-        delegate.window?.windowScene = windowScene
-        delegate.window?.backgroundColor = .white
-        delegate.window?.rootViewController = tabBarController
+    func configure(application: UIApplication, launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
+        guard let delegate = application.delegate as? AppDelegate else { return }
+        let mainWindow = UIWindow(frame: UIScreen.main.bounds)
+        mainWindow.backgroundColor = .white
+        mainWindow.rootViewController = tabBarController
+        delegate.window = mainWindow
         delegate.window?.makeKeyAndVisible()
         
         startRouting()

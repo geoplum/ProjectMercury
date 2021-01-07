@@ -19,7 +19,7 @@ final class RemoteNotificationsConfigurator: AppDelegateConfigurable {
         self.router = router
     }
 
-    func configure(_ scene: UIScene, willConnectTo session: UISceneSession) {
+    func configure(application: UIApplication, launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
         
     }
 }
@@ -27,9 +27,10 @@ final class RemoteNotificationsConfigurator: AppDelegateConfigurable {
 // MARK: -
 
 extension RemoteNotificationsConfigurator: AppDelegateStateTransitionable {
+    
     // MARK: - MSMAppDelegateStateTransitionable
     
-    func sceneDidBecomeActive(_ scene: UIScene) {
+    func didBecomeActive(_ application: UIApplication) {
         
     }
     

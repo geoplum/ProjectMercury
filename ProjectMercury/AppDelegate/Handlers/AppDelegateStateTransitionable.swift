@@ -9,14 +9,14 @@ import UIKit
 
 protocol AppDelegateStateTransitionable {
     
-    func sceneDidBecomeActive(_ scene: UIScene)
-    func sceneWillEnterForeground(_ scene: UIScene)
-    func sceneDidEnterBackground(_ scene: UIScene)
+    func didBecomeActive(_ application: UIApplication)
+    func willEnterForeground(_ application: UIApplication)
+    func didEnterBackground(_ application: UIApplication)
 }
 
 extension AppDelegateStateTransitionable {
     
-    func sceneDidBecomeActive(_ scene: UIScene) {}
-    func sceneWillEnterForeground(_ scene: UIScene) {}
-    func sceneDidEnterBackground(_ scene: UIScene) {}
+    func didBecomeActive(_ application: UIApplication) {}
+    func willEnterForeground(_ application: UIApplication) {}
+    func didEnterBackground(_ application: UIApplication) {}
 }
