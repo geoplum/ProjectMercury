@@ -8,20 +8,22 @@
 import Foundation
 import UIKit
 
+// 2) - Each router class is a RoutingNode, which has a structure that implements it own dedicated setup and reset functions by looping throught the router parent and childrens. Each RoutingNode also requires a Presenter for presenting/pushing any required screen from this router.
+
 final class CashBackRouter: NSObject {
     
     // MARK: - Properties
     
     let presenter: NavigationPresenter
 
-    // MARK: - MSMNavigationRoutable properties
+    // MARK: - NavigationRoutable properties
     
-    weak var parent: Coordinator?
-    let children: [Coordinator] = []
+    weak var parent: Router?
+    let children: [Router] = []
 
     // MARK: - Initializer
     
-    init(presenter: NavigationPresenter, parent: NavigationRoutable) {
+    init(presenter: NavigationPresenter, parent: Router) {
         self.presenter = presenter
         self.parent = parent
         super.init()

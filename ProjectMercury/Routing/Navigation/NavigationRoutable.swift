@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol NavigationRoutable: Coordinator {
+protocol NavigationRoutable: Router {
     
     var presenter: NavigationPresenter { get }
 
@@ -27,9 +27,4 @@ extension NavigationRoutable {
         })
     }
     
-    func dismissFromMasterViewControllerAndRoute(to appPath: RouteData, animated: Bool = true, completion: (() -> Void)? = nil) {
-        presenter.dismissFromMasterViewController { [weak self] in
-            self?.route(to: appPath, animated: true, completion: completion)
-        }
-    }
 }

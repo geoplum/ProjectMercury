@@ -24,6 +24,8 @@
 		C792FCA92586C9400078BFCB /* CashBackRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C792FCA82586C9400078BFCB /* CashBackRouter.swift */; };
 		C792FCAC2586C9980078BFCB /* CashBackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C792FCAB2586C9980078BFCB /* CashBackViewController.swift */; };
 		C792FCAF2586C9C20078BFCB /* LostMoneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C792FCAE2586C9C20078BFCB /* LostMoneyViewController.swift */; };
+		C7BA4FEB25A7D884005CDB96 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C7BA4FEA25A7D883005CDB96 /* README.md */; };
+		C7CBFD9F25A7CFA1002ACDA8 /* InvestmentsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CBFD9E25A7CFA1002ACDA8 /* InvestmentsRouter.swift */; };
 		C7CFA11925A12B3000EFE411 /* EventPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CFA11825A12B3000EFE411 /* EventPublisher.swift */; };
 		C7CFA12125A12FCD00EFE411 /* UIControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CFA12025A12FCD00EFE411 /* UIControl.swift */; };
 		C7E3F94725A118350045E491 /* AppPathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E3F94625A118350045E491 /* AppPathTests.swift */; };
@@ -38,7 +40,7 @@
 		C7F24BDC25858BAB0031A989 /* AppPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F24BDB25858BAB0031A989 /* AppPath.swift */; };
 		C7F24BE025858BBC0031A989 /* RouteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F24BDF25858BBC0031A989 /* RouteData.swift */; };
 		C7F24BE325858BE90031A989 /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F24BE225858BE90031A989 /* RootRouter.swift */; };
-		C7F24BE725858C280031A989 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F24BE625858C280031A989 /* Coordinator.swift */; };
+		C7F24BE725858C280031A989 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F24BE625858C280031A989 /* Router.swift */; };
 		C7F24BEC25858DA40031A989 /* Array+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F24BEB25858DA40031A989 /* Array+Ext.swift */; };
 		C7F24BF52585914E0031A989 /* AppDelegateURLHandleable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F24BF42585914E0031A989 /* AppDelegateURLHandleable.swift */; };
 		C7F24BF92585928D0031A989 /* URLHandleable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F24BF82585928D0031A989 /* URLHandleable.swift */; };
@@ -73,6 +75,8 @@
 		C792FCA82586C9400078BFCB /* CashBackRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashBackRouter.swift; sourceTree = "<group>"; };
 		C792FCAB2586C9980078BFCB /* CashBackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashBackViewController.swift; sourceTree = "<group>"; };
 		C792FCAE2586C9C20078BFCB /* LostMoneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LostMoneyViewController.swift; sourceTree = "<group>"; };
+		C7BA4FEA25A7D883005CDB96 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		C7CBFD9E25A7CFA1002ACDA8 /* InvestmentsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentsRouter.swift; sourceTree = "<group>"; };
 		C7CFA11825A12B3000EFE411 /* EventPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventPublisher.swift; sourceTree = "<group>"; };
 		C7CFA12025A12FCD00EFE411 /* UIControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIControl.swift; sourceTree = "<group>"; };
 		C7E3F94425A118350045E491 /* ProjectMercuryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProjectMercuryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,7 +95,7 @@
 		C7F24BDB25858BAB0031A989 /* AppPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPath.swift; sourceTree = "<group>"; };
 		C7F24BDF25858BBC0031A989 /* RouteData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteData.swift; sourceTree = "<group>"; };
 		C7F24BE225858BE90031A989 /* RootRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootRouter.swift; sourceTree = "<group>"; };
-		C7F24BE625858C280031A989 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		C7F24BE625858C280031A989 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		C7F24BEB25858DA40031A989 /* Array+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Ext.swift"; sourceTree = "<group>"; };
 		C7F24BF42585914E0031A989 /* AppDelegateURLHandleable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateURLHandleable.swift; sourceTree = "<group>"; };
 		C7F24BF82585928D0031A989 /* URLHandleable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLHandleable.swift; sourceTree = "<group>"; };
@@ -175,11 +179,12 @@
 			isa = PBXGroup;
 			children = (
 				C792FC9A2586C71A0078BFCB /* HomeRouter.swift */,
+				C7CBFD9E25A7CFA1002ACDA8 /* InvestmentsRouter.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
 		};
-		C792FC9E2586C7D70078BFCB /* MainFlow */ = {
+		C792FC9E2586C7D70078BFCB /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				C728A48325A0FAEE0000C98C /* Home */,
@@ -187,7 +192,7 @@
 				C728A48525A0FB030000C98C /* Cashback */,
 				C728A48D25A106930000C98C /* Invite A Friend */,
 			);
-			path = MainFlow;
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		C792FCA32586C9000078BFCB /* LostMoney */ = {
@@ -228,6 +233,7 @@
 		C7F24BA6258588030031A989 = {
 			isa = PBXGroup;
 			children = (
+				C7BA4FEA25A7D883005CDB96 /* README.md */,
 				C7F24BB1258588030031A989 /* ProjectMercury */,
 				C7E3F94525A118350045E491 /* ProjectMercuryTests */,
 				C7F24BB0258588030031A989 /* Products */,
@@ -249,7 +255,7 @@
 				C7F24BC7258589F00031A989 /* AppDelegate */,
 				C7F24BD525858B710031A989 /* Routing */,
 				C7F24BEA25858D930031A989 /* Extensions */,
-				C792FC9E2586C7D70078BFCB /* MainFlow */,
+				C792FC9E2586C7D70078BFCB /* ViewControllers */,
 				C7F24BB8258588040031A989 /* Assets.xcassets */,
 				C7F24BBD258588040031A989 /* LaunchScreen.storyboard */,
 				C7F24BC0258588040031A989 /* Info.plist */,
@@ -304,6 +310,7 @@
 				C728A4A625A10E090000C98C /* Routers */,
 				C7F24BE525858C1C0031A989 /* Navigation */,
 				C7F24BDB25858BAB0031A989 /* AppPath.swift */,
+				C7F24BE625858C280031A989 /* Router.swift */,
 				C7F24BDF25858BBC0031A989 /* RouteData.swift */,
 			);
 			path = Routing;
@@ -312,7 +319,6 @@
 		C7F24BE525858C1C0031A989 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
-				C7F24BE625858C280031A989 /* Coordinator.swift */,
 				C792FC872586C4740078BFCB /* TabBarEmbeddable.swift */,
 				C728A4A925A10F6D0000C98C /* NavigationRoutable.swift */,
 				C792FC8B2586C4DC0078BFCB /* NavigationPresenter.swift */,
@@ -419,6 +425,7 @@
 			files = (
 				C7F24BBF258588040031A989 /* LaunchScreen.storyboard in Resources */,
 				C7F24BBC258588040031A989 /* Preview Assets.xcassets in Resources */,
+				C7BA4FEB25A7D884005CDB96 /* README.md in Resources */,
 				C7F24BB9258588040031A989 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -458,10 +465,11 @@
 				C792FC9B2586C71A0078BFCB /* HomeRouter.swift in Sources */,
 				C728A4AA25A10F6D0000C98C /* NavigationRoutable.swift in Sources */,
 				C7F24BF52585914E0031A989 /* AppDelegateURLHandleable.swift in Sources */,
+				C7CBFD9F25A7CFA1002ACDA8 /* InvestmentsRouter.swift in Sources */,
 				C792FCA92586C9400078BFCB /* CashBackRouter.swift in Sources */,
 				C776E26025859A68005A9CBE /* RemoteNotificationsConfigurator.swift in Sources */,
 				C7F24BE325858BE90031A989 /* RootRouter.swift in Sources */,
-				C7F24BE725858C280031A989 /* Coordinator.swift in Sources */,
+				C7F24BE725858C280031A989 /* Router.swift in Sources */,
 				C7F24BDC25858BAB0031A989 /* AppPath.swift in Sources */,
 				C792FCA12586C8810078BFCB /* HomeViewController.swift in Sources */,
 				C792FC882586C4740078BFCB /* TabBarEmbeddable.swift in Sources */,

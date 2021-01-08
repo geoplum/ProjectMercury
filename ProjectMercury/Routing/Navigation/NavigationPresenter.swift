@@ -10,8 +10,6 @@ import Combine
 
 final class NavigationPresenter: UIViewController {
     
-    private typealias ViewControllerPresentation = (UIViewController, animated: Bool, completion: (() -> Void)?)
-
     // MARK: - Properties
     
     fileprivate(set) lazy var masterNavigationController: NavigationController = NavigationController()
@@ -35,7 +33,7 @@ final class NavigationPresenter: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        setupBindings()
+        registerObservers()
     }
     
     
@@ -52,7 +50,7 @@ final class NavigationPresenter: UIViewController {
         masterNavigationController.didMove(toParent: self)
     }
     
-    private func setupBindings() {
+    private func registerObservers() {
         
     }
     
@@ -80,13 +78,6 @@ final class NavigationPresenter: UIViewController {
     }
     
     // MARK: - Push controller
-    
-    private func pushInDetailContainer(_ presentation: ViewControllerPresentation) {
-        let viewController = presentation.0
-        let animated = presentation.animated
-        let completion = presentation.completion
-        masterNavigationController.pushViewController(viewController, animated: animated, completion: completion)
-    }
     
     func push(_ viewController: UIViewController, animated: Bool = true, completion: (() -> Void)?) {
         masterNavigationController.pushViewController(viewController, animated: animated, completion: completion)
@@ -119,23 +110,14 @@ final class NavigationPresenter: UIViewController {
     }
     
     func dismissPresentedViewController(animated: Bool = true, completion: (() -> Void)?) {
+    
         let presentedController = masterNavigationController.presentedViewController ?? masterNavigationController
         if let presentationController = (presentedController as? NavigationController)?.topViewController {
             dismiss(presentationController, animated: animated, completion: completion)
         } else if let presentationController = (presentedController as? NavigationController) {
             dismiss(presentationController, animated: animated, completion: completion)
-        } else if let presentationController = masterNavigationController.topViewController {
-            dismiss(presentationController, animated: animated, completion: completion)
         } else {
-            dismiss(masterNavigationController, animated: animated, completion: completion)
-        }
-    }
-    
-    func dismissFromMasterViewController(animated: Bool = true, completion: (() -> Void)?) {
-        if let presentationController = masterNavigationController.topViewController {
-            dismiss(presentationController, animated: animated, completion: completion)
-        } else {
-            dismiss(masterNavigationController, animated: animated, completion: completion)
+            dismiss(presentedController, animated: animated, completion: completion)
         }
     }
     

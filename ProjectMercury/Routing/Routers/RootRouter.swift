@@ -24,7 +24,7 @@ final class RootRouter: NSObject {
     
     private struct TabRouting {
         
-        let viewController: UIViewController
+        let item: TabItem
         let router: NavigationRoutable
     }
 
@@ -34,9 +34,10 @@ final class RootRouter: NSObject {
     fileprivate let tabSelected = PassthroughSubject<TabItem, Never>()
     fileprivate var cancellable = Set<AnyCancellable>()
     
-    // MARK: - MSMNavigationRoutable property
+    // MARK: - NavigationRoutable property
     
-    private(set) var children: [Coordinator]
+    private(set) var children: [Router]
+    var parent: Router?
     
     // MARK: - Lazy properties
     
@@ -57,32 +58,23 @@ final class RootRouter: NSObject {
     
     // MARK: - Private setup functions
     
-    fileprivate func setup() {
-        buildTabBarController()
-        setupBindings()
-    }
-    
     private func makeTabRoutings(from tabItems: [TabItem]) -> [TabRouting] {
         
         return tabItems.compactMap { (tabBarItem) -> TabRouting? in
             switch tabBarItem {
             case .home:
-                let presenter = NavigationPresenter()
-                let router = HomeRouter(presenter: presenter, parent: self)
+                let router = HomeRouter(presenter: NavigationPresenter(), parent: self)
                 router.route(to: RouteData(path: .home), animated: false, completion: nil)
-                return TabRouting(viewController: presenter, router: router)
+                return TabRouting(item: tabBarItem, router: router)
             case .lostmoney:
-                let presenter = NavigationPresenter()
-                let router = LostMoneyRouter(presenter: presenter, parent: self)
+                let router = LostMoneyRouter(presenter: NavigationPresenter(), parent: self)
                 router.route(to: RouteData(path: .lostMoney), animated: false, completion: nil)
-                return TabRouting(viewController: presenter, router: router)
+                return TabRouting(item: tabBarItem, router: router)
 
             case .cashback:
-                let presenter = NavigationPresenter()
-                let router = CashBackRouter(presenter: presenter, parent: self)
+                let router = CashBackRouter(presenter: NavigationPresenter(), parent: self)
                 router.route(to: RouteData(path: .cashback), animated: false, completion: nil)
-                return TabRouting(viewController: presenter, router: router)
-
+                return TabRouting(item: tabBarItem, router: router)
             }
         }
     }
@@ -90,7 +82,8 @@ final class RootRouter: NSObject {
     private func buildTabBarController() {
         let tabRoutings = makeTabRoutings(from: TabItem.allCases)
         children = tabRoutings.map { $0.router }
-        let viewControllers = tabRoutings.map { $0.viewController }
+        let viewControllers: [UIViewController] = tabRoutings.compactMap { $0.router.presenter }
+        
         tabBarController.tabBar.alpha = 1
         tabBarController.view.backgroundColor = .clear
         tabBarController.viewControllers = viewControllers
@@ -98,6 +91,7 @@ final class RootRouter: NSObject {
             .compactMap { $0 as? TabBarEmbeddable }
             .forEach { $0.didEmbedIn(tabBar: tabBarController.tabBar) }
         
+        route(to: RouteData(path: .home), animated: true, completion: nil)
     }
 
     // MARK: - Public functions
@@ -108,17 +102,17 @@ final class RootRouter: NSObject {
     
     // MARK: - Private functions
     
-    fileprivate func setupBindings() {
+    fileprivate func registerObservers() {
+        
+        // reset pop view controllers on current tab
         tabSelected
             .scan([TabItem.allCases[0]]) { (sum, new) -> [TabItem] in
                 return Array((sum + [new]).suffix(2))
             }.filter { (pair) -> Bool in
                 guard pair.count == 2 else { return false }
                 return pair[0] == pair[1]
-            }.map { (pair) -> TabItem in
-                return pair[0]
             }
-            .sink(receiveValue: { (result) in
+            .sink(receiveValue: { _ in
                 self.popNavigationToRootIfNeeded()
             })
             .store(in: &cancellable)
@@ -133,8 +127,8 @@ final class RootRouter: NSObject {
     }
     
     fileprivate func startRouting() {
-        setup()
-        route(to: RouteData(path: .home), animated: true, completion: nil)
+        buildTabBarController()
+        registerObservers()
     }
     
 }
@@ -156,7 +150,7 @@ extension RootRouter: UITabBarControllerDelegate {
 
 extension RootRouter: AppDelegateConfigurable {
     
-    // MARK: - MSMAppDelegateConfigurable
+    // MARK: - AppDelegateConfigurable
     
     func configure(application: UIApplication, launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
         guard let delegate = application.delegate as? AppDelegate else { return }
@@ -166,24 +160,16 @@ extension RootRouter: AppDelegateConfigurable {
         delegate.window = mainWindow
         delegate.window?.makeKeyAndVisible()
         
+        // Tell router to take over
         startRouting()
     }
 }
 
 // MARK: -
 
-extension RootRouter: NavigationRoutable {
-    
-    // MARK: - MSMNavigationRoutable
-    
-    var presenter: NavigationPresenter {
-        return NavigationPresenter()
-    }
+extension RootRouter: Router {
 
-    var parent: Coordinator? {
-        get { return nil }
-        set { }
-    }
+    // MARK: - NavigationRoutable
     
     fileprivate func resolveUnknownAppPath(with component: String, onResolution: @escaping (AppPath?) -> Void) {
        // resolve any unkown paths or deep links here

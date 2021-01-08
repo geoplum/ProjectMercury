@@ -98,7 +98,7 @@ final class DeepLinkHandler: AppDelegateURLHandleable {
 
 extension DeepLinkHandler: URLHandleable {
     
-    // MARK: - MSMURLHandleable
+    // MARK: - URLHandleable
     
     func canHandle(_ url: URL) -> Bool {
         return appRouteData(forURL: url) != nil

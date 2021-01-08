@@ -11,11 +11,11 @@ final class RemoteNotificationsConfigurator: AppDelegateConfigurable {
 
     // MARK: - Properties
     
-    let router: NavigationRoutable
+    let router: Router
     
     // MARK: - Initializer
     
-    init(router: NavigationRoutable) {
+    init(router: Router) {
         self.router = router
     }
 
@@ -28,7 +28,7 @@ final class RemoteNotificationsConfigurator: AppDelegateConfigurable {
 
 extension RemoteNotificationsConfigurator: AppDelegateStateTransitionable {
     
-    // MARK: - MSMAppDelegateStateTransitionable
+    // MARK: - AppDelegateStateTransitionable
     
     func didBecomeActive(_ application: UIApplication) {
         
