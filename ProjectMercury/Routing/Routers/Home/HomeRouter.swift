@@ -8,18 +8,13 @@
 import Foundation
 import UIKit
 
-protocol HomeDataPassing
-{
-    var dataStore: DataStore? { get }
-}
-
 // 3) HomeRouter: Each class conforming to NavigationRoutable can be considered as a RouteNode, which implements its own dedicated setup and reset functions and contains a Presenter that delegates the navigation between the screens of a RouteNode.
-final class HomeRouter: NSObject, HomeDataPassing {
+final class HomeRouter: NSObject {
     
     // MARK: - Properties
     
     let presenter: NavigationPresenter
-    var dataStore: DataStore?
+    let store: HomeStore
 
     // MARK: - NavigationRoutable properties
     
@@ -31,6 +26,7 @@ final class HomeRouter: NSObject, HomeDataPassing {
     init(presenter: NavigationPresenter, parent: Router) {
         self.presenter = presenter
         self.parent = parent
+        self.store = HomeStore(reducers: Factory.Reducers.homeReducers(), initial: HomeState.empty, middlewares: Factory.Middlewares.homeMiddlewares())
         super.init()
         self.children = [
             InvestmentsRouter(presenter: presenter, parent: self)
@@ -59,7 +55,8 @@ extension HomeRouter: NavigationRoutable {
             if let viewController = presenter.masterViewControllers.first(where: { $0 is HomeViewController }) {
                 presenter.popTo(viewController, animated: animated, completion: completion)
             } else {
-                let viewController = HomeViewController(router: self)
+                let viewModel = HomeViewModel(store: self.store)
+                let viewController = HomeViewController(viewModel: viewModel, router: self)
                 presenter.push(viewController, animated: animated, completion: completion)
             }
         case .pockets:

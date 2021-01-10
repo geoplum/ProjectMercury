@@ -12,11 +12,13 @@ final class HomeViewController: UIViewController {
 
     // 5) all our view controllers need a way to talk to their coordinator/router. For larger apps you’ll want to use protocols here so that you can call the exact properties of the coordinator which will handle the routing for you.
     weak var router: Router?
+    private let viewModel: HomeViewModel
     private var disposables = Set<AnyCancellable>()
     
     // MARK: - Initializer
     
-    init(router: Router) {
+    init(viewModel: HomeViewModel, router: Router) {
+        self.viewModel = viewModel
         self.router = router
         super.init(nibName: nil, bundle: nil)
         setupTabBarItem()
