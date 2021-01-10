@@ -1,5 +1,5 @@
 //
-//  RootRouter.swift
+//  TabBarRouter.swift
 //  ProjectMercury
 //
 //  Created by GEORGE QUENTIN on 12/12/2020.
@@ -9,7 +9,7 @@ import UIKit
 import SwiftUI
 import Combine
 
-final class RootRouter: NSObject {
+final class TabBarRouter: NSObject {
     
     // MARK: -
 
@@ -135,7 +135,7 @@ final class RootRouter: NSObject {
 
 // MARK: -
 
-extension RootRouter: UITabBarControllerDelegate {
+extension TabBarRouter: UITabBarControllerDelegate {
     
     // MARK: - UITabBarControllerDelegate
     
@@ -148,7 +148,7 @@ extension RootRouter: UITabBarControllerDelegate {
 
 // MARK: -
 
-extension RootRouter: AppDelegateConfigurable {
+extension TabBarRouter: AppDelegateConfigurable {
     
     // MARK: - AppDelegateConfigurable
     
@@ -167,7 +167,7 @@ extension RootRouter: AppDelegateConfigurable {
 
 // MARK: -
 
-extension RootRouter: Router {
+extension TabBarRouter: Router {
 
     // MARK: - NavigationRoutable
     

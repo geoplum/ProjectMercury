@@ -8,12 +8,13 @@
 import UIKit
 import Combine
 
-class CashBackViewController: UIViewController {
+final class CashBackViewController: UIViewController {
 
-    weak var router: NavigationRoutable?
+    // 5) all our view controllers need a way to talk to their coordinator/router. For larger apps you’ll want to use protocols here so that you can call the exact properties of the coordinator which will handle the routing for you.
+    weak var router: Router?
     private var disposables = Set<AnyCancellable>()
     
-    init(router: NavigationRoutable) {
+    init(router: Router) {
         self.router = router
         super.init(nibName: nil, bundle: nil)
         setupTabBarItem()

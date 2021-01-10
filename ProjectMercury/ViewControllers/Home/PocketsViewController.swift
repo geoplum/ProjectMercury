@@ -7,13 +7,14 @@
 
 import UIKit
 
-class PocketsViewController: UIViewController {
+final class PocketsViewController: UIViewController {
 
-    weak var router: NavigationRoutable?
+    // 5) all our view controllers need a way to talk to their coordinator/router. For larger apps you’ll want to use protocols here so that you can call the exact properties of the coordinator which will handle the routing for you.
+    weak var router: Router?
     
     // MARK: - Initializer
     
-    init(router: NavigationRoutable) {
+    init(router: Router) {
         self.router = router
         super.init(nibName: nil, bundle: nil)
         self.title = "Pockets"

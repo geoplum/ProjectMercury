@@ -14,8 +14,8 @@ final class MockRouter: NavigationRoutable {
     
     // MARK: -
     
-    weak var parent: Coordinator?
-    let children: [Coordinator] = []
+    weak var parent: Router?
+    let children: [Router] = []
     
     // MARK: -
     
@@ -29,5 +29,4 @@ final class MockRouter: NavigationRoutable {
     func route(to routeData: RouteData, animated: Bool, completion: (() -> Void)?) {}
     func resetNavigation(for routeData: RouteData, animated: Bool, completion: (() -> Void)?) {}
     func setupNavigation(for routeData: RouteData, animated: Bool, completion: (() -> Void)?) {}
-    
 }

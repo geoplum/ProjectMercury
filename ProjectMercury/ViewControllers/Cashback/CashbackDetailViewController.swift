@@ -8,14 +8,14 @@
 import UIKit
 import Combine
 
-class CashbackDetailViewController: UIViewController {
+final class CashbackDetailViewController: UIViewController {
 
-    weak var router: NavigationRoutable?
+    weak var router: Router?
     private var disposables = Set<AnyCancellable>()
     
     // MARK: - Initializer
     
-    init(router: NavigationRoutable) {
+    init(router: Router) {
         self.router = router
         super.init(nibName: nil, bundle: nil)
         self.title = "Cashback Detail"

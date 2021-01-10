@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private let deepLinkHandler: DeepLinkHandler
     private let remoteNotificationConfigurator: RemoteNotificationsConfigurator
-    private let router: RootRouter
+    private let router: TabBarRouter
     
     fileprivate var configurators: [AppDelegateConfigurable] {
         return [
@@ -41,9 +41,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     override init() {
-        deepLinkHandler = DeepLinkHandler()
-        router = RootRouter(with: deepLinkHandler)
-        remoteNotificationConfigurator = RemoteNotificationsConfigurator(router: router)
+        self.deepLinkHandler = DeepLinkHandler()
+        self.router = TabBarRouter(with: deepLinkHandler)
+        self.remoteNotificationConfigurator = RemoteNotificationsConfigurator(router: router)
         
     }
     

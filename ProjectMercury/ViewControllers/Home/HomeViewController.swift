@@ -8,14 +8,15 @@
 import UIKit
 import Combine
 
-class HomeViewController: UIViewController {
+final class HomeViewController: UIViewController {
 
-    weak var router: NavigationRoutable?
+    // 5) all our view controllers need a way to talk to their coordinator/router. For larger apps you’ll want to use protocols here so that you can call the exact properties of the coordinator which will handle the routing for you.
+    weak var router: Router?
     private var disposables = Set<AnyCancellable>()
     
     // MARK: - Initializer
     
-    init(router: NavigationRoutable) {
+    init(router: Router) {
         self.router = router
         super.init(nibName: nil, bundle: nil)
         setupTabBarItem()
@@ -120,6 +121,7 @@ class HomeViewController: UIViewController {
         ])
         inviteButton.tapPublisher
             .sink { [weak self] _ in
+                //6) `router.route(to:...`: all view controllers that need to communitcate with their coordinator/router to go to other screens will have this notation. The coordinator will handle these requests and show the appropriate screen depending of how the router is setup. 
                 self?.router?.route(to: RouteData(path: .inviteFriends), animated: true, completion: nil)
             }.store(in: &disposables)
     }

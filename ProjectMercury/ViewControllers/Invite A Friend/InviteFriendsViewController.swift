@@ -8,14 +8,14 @@
 import UIKit
 import Combine
 
-class InviteFriendsViewController: UIViewController {
+final class InviteFriendsViewController: UIViewController {
 
-    weak var router: NavigationRoutable?
+    weak var router: Router?
     private var disposables = Set<AnyCancellable>()
     
     // MARK: - Initializer
     
-    init(router: NavigationRoutable) {
+    init(router: Router) {
         self.router = router
         super.init(nibName: nil, bundle: nil)
         self.title = "Invite"
@@ -47,7 +47,7 @@ class InviteFriendsViewController: UIViewController {
         ])
         homeButton.tapPublisher
             .sink { [weak self] _ in
-                self?.router?.dismissPresentedViewControllerAndRoute(to: RouteData(path: .home), animated: true, completion: nil)
+                self?.router?.dismissAndRoute(to: RouteData(path: .home), animated: true, completion: nil)
             }.store(in: &disposables)
     }
   

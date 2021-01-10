@@ -7,6 +7,7 @@
 
 import Foundation
 
+// 2) NavigationRoutable: This is an extension of the router which holds the Presenter object that is used to present and push  UIViewControllers.
 protocol NavigationRoutable: Router {
     
     var presenter: NavigationPresenter { get }
@@ -17,12 +18,12 @@ protocol NavigationRoutable: Router {
 
 extension NavigationRoutable {
     
-    func dismissPresentedViewController(animated: Bool = true, completion: (() -> Void)? = nil) {
+    func dismiss(animated: Bool = true, completion: (() -> Void)? = nil) {
         presenter.dismissPresentedViewController(animated: animated, completion: completion)
     }
     
-    func dismissPresentedViewControllerAndRoute(to appPath: RouteData, animated: Bool = true, completion: (() -> Void)? = nil) {
-        dismissPresentedViewController(animated: animated, completion: { [weak self] () in
+    func dismissAndRoute(to appPath: RouteData, animated: Bool = true, completion: (() -> Void)? = nil) {
+        dismiss(animated: animated, completion: { [weak self] () in
             self?.route(to: appPath, animated: true, completion: completion)
         })
     }

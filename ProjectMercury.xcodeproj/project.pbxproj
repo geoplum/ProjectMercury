@@ -39,7 +39,7 @@
 		C7F24BD325858AD90031A989 /* AppUIConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F24BD225858AD90031A989 /* AppUIConfigurator.swift */; };
 		C7F24BDC25858BAB0031A989 /* AppPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F24BDB25858BAB0031A989 /* AppPath.swift */; };
 		C7F24BE025858BBC0031A989 /* RouteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F24BDF25858BBC0031A989 /* RouteData.swift */; };
-		C7F24BE325858BE90031A989 /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F24BE225858BE90031A989 /* RootRouter.swift */; };
+		C7F24BE325858BE90031A989 /* TabBarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F24BE225858BE90031A989 /* TabBarRouter.swift */; };
 		C7F24BE725858C280031A989 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F24BE625858C280031A989 /* Router.swift */; };
 		C7F24BEC25858DA40031A989 /* Array+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F24BEB25858DA40031A989 /* Array+Ext.swift */; };
 		C7F24BF52585914E0031A989 /* AppDelegateURLHandleable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F24BF42585914E0031A989 /* AppDelegateURLHandleable.swift */; };
@@ -94,7 +94,7 @@
 		C7F24BD225858AD90031A989 /* AppUIConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUIConfigurator.swift; sourceTree = "<group>"; };
 		C7F24BDB25858BAB0031A989 /* AppPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPath.swift; sourceTree = "<group>"; };
 		C7F24BDF25858BBC0031A989 /* RouteData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteData.swift; sourceTree = "<group>"; };
-		C7F24BE225858BE90031A989 /* RootRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootRouter.swift; sourceTree = "<group>"; };
+		C7F24BE225858BE90031A989 /* TabBarRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarRouter.swift; sourceTree = "<group>"; };
 		C7F24BE625858C280031A989 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		C7F24BEB25858DA40031A989 /* Array+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Ext.swift"; sourceTree = "<group>"; };
 		C7F24BF42585914E0031A989 /* AppDelegateURLHandleable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateURLHandleable.swift; sourceTree = "<group>"; };
@@ -159,7 +159,7 @@
 		C728A4A625A10E090000C98C /* Routers */ = {
 			isa = PBXGroup;
 			children = (
-				C7F24BE225858BE90031A989 /* RootRouter.swift */,
+				C7F24BE225858BE90031A989 /* TabBarRouter.swift */,
 				C792FC992586C7000078BFCB /* Home */,
 				C792FCA32586C9000078BFCB /* LostMoney */,
 				C792FCA42586C90C0078BFCB /* CashBack */,
@@ -468,7 +468,7 @@
 				C7CBFD9F25A7CFA1002ACDA8 /* InvestmentsRouter.swift in Sources */,
 				C792FCA92586C9400078BFCB /* CashBackRouter.swift in Sources */,
 				C776E26025859A68005A9CBE /* RemoteNotificationsConfigurator.swift in Sources */,
-				C7F24BE325858BE90031A989 /* RootRouter.swift in Sources */,
+				C7F24BE325858BE90031A989 /* TabBarRouter.swift in Sources */,
 				C7F24BE725858C280031A989 /* Router.swift in Sources */,
 				C7F24BDC25858BAB0031A989 /* AppPath.swift in Sources */,
 				C792FCA12586C8810078BFCB /* HomeViewController.swift in Sources */,

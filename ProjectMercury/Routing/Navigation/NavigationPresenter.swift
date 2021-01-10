@@ -8,6 +8,7 @@
 import UIKit
 import Combine
 
+// 4) NavigationPresenter: the viewcontroller at the top level of each router, which is used to push, pop, present and dismiss UIViewControllers.
 final class NavigationPresenter: UIViewController {
     
     // MARK: - Properties

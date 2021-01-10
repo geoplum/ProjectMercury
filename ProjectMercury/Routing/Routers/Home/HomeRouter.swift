@@ -13,7 +13,7 @@ protocol HomeDataPassing
     var dataStore: DataStore? { get }
 }
 
-// 2) - Each router class is a RoutingNode, which has a structure that implements it own dedicated setup and reset functions by looping throught the router parent and childrens. Each RoutingNode also requires a Presenter for presenting/pushing any required screen from this router.
+// 3) HomeRouter: Each class conforming to NavigationRoutable can be considered as a RouteNode, which implements its own dedicated setup and reset functions and contains a Presenter that delegates the navigation between the screens of a RouteNode.
 final class HomeRouter: NSObject, HomeDataPassing {
     
     // MARK: - Properties
