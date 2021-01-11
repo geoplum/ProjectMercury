@@ -14,6 +14,9 @@ This project is to showcase how we can implement the coordinator pattern using r
 - It helps to easily manage and understand the app routing structure and its hierarchy.
 - It will unify routing (e.g push, present, dismiss, pop) with deeplinks (e.g push notifications, url links), universal links and shortcuts.
 
+## Example Flow
+<img src="Routing-Flow.png" width="1000" height="652"/>
+
 ## Glossary
 
 - 1) `Router`: This is the Coordinator where each route-node has a parent and potential children.
