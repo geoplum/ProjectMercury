@@ -30,7 +30,6 @@ final class TabBarRouter: NSObject {
 
     // MARK: - Properties
     
-    fileprivate let urlHandler: URLHandleable
     fileprivate let tabSelected = PassthroughSubject<TabItem, Never>()
     fileprivate var cancellable = Set<AnyCancellable>()
     
@@ -50,8 +49,7 @@ final class TabBarRouter: NSObject {
     
     // MARK: - Initializer
     
-    init(with urlHandler: URLHandleable) {
-        self.urlHandler = urlHandler
+    override init() {
         self.children = []
         super.init()
     }
@@ -91,7 +89,7 @@ final class TabBarRouter: NSObject {
             .compactMap { $0 as? TabBarEmbeddable }
             .forEach { $0.didEmbedIn(tabBar: tabBarController.tabBar) }
         
-        route(to: RouteData(path: .home), animated: true, completion: nil)
+        handle(routeData: RouteData(path: .home))
     }
 
     // MARK: - Public functions
@@ -105,17 +103,17 @@ final class TabBarRouter: NSObject {
     fileprivate func registerObservers() {
         
         // reset pop view controllers on current tab
-        tabSelected
-            .scan([TabItem.allCases[0]]) { (sum, new) -> [TabItem] in
-                return Array((sum + [new]).suffix(2))
-            }.filter { (pair) -> Bool in
-                guard pair.count == 2 else { return false }
-                return pair[0] == pair[1]
-            }
-            .sink(receiveValue: { _ in
-                self.popNavigationToRootIfNeeded()
-            })
-            .store(in: &cancellable)
+//        tabSelected
+//            .scan([TabItem.allCases[0]]) { (sum, new) -> [TabItem] in
+//                return Array((sum + [new]).suffix(2))
+//            }.filter { (pair) -> Bool in
+//                guard pair.count == 2 else { return false }
+//                return pair[0] == pair[1]
+//            }
+//            .sink(receiveValue: { _ in
+//                self.popNavigationToRootIfNeeded()
+//            })
+//            .store(in: &cancellable)
     }
     
     // MARK: - Routing helpers
@@ -161,7 +159,7 @@ extension TabBarRouter: AppDelegateConfigurable {
         delegate.window?.makeKeyAndVisible()
         
         // Tell router to take over
-        startRouting()
+        self.startRouting()
     }
 }
 
@@ -225,11 +223,54 @@ extension TabBarRouter: Router {
     }
     
     func canRoute(to url: URL) -> Bool {
-        return urlHandler.canHandle(url)
+        return canHandle(url)
     }
     
     func route(to url: URL) {
         guard canRoute(to: url) else { return }
-        urlHandler.handle(url)
+        handle(url)
+    }
+
+}
+
+// MARK: -
+
+extension TabBarRouter: URLHandleable {
+    
+    // MARK: - AppPath handlers
+    
+    func appPath(for item: UIApplicationShortcutItem) -> AppPath? {
+        return nil
+    }
+    
+    func appRouteData(forURL url: URL) -> RouteData? {
+        return nil
+    }
+    
+    fileprivate func appRouteData(forPathComponents pathComponents: [String], query: [String: String] = [:]) -> RouteData? {
+        guard let path = appPath(forPathComponents: pathComponents, query: query) else {
+            return nil
+        }
+        return RouteData(path: path, parameters: query)
+    }
+    
+    fileprivate func appPath(forPathComponents pathComponents: [String], query: [String: String] = [:]) -> AppPath? {
+        let components = pathComponents.filter({ $0 != "/" && $0 != "" && $0 != "." }).map({ $0.lowercased() })
+        return AppPath(pathComponents: components, query: query)
+    }
+
+    func handle(routeData: RouteData) {
+        route(to: routeData, animated: true, completion: nil)
+    }
+
+    // MARK: - URLHandleable
+    
+    func canHandle(_ url: URL) -> Bool {
+        return appRouteData(forURL: url) != nil
+    }
+    
+    func handle(_ url: URL) {
+        guard let appRouteData = appRouteData(forURL: url) else { return }
+        handle(routeData: appRouteData)
     }
 }

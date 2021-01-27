@@ -41,9 +41,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     override init() {
-        self.deepLinkHandler = DeepLinkHandler()
-        self.router = TabBarRouter(with: deepLinkHandler)
-        self.remoteNotificationConfigurator = RemoteNotificationsConfigurator(router: router)
+        self.router = TabBarRouter()
+        self.deepLinkHandler = DeepLinkHandler(router: self.router)
+        self.remoteNotificationConfigurator = RemoteNotificationsConfigurator(router: self.router)
         
     }
     

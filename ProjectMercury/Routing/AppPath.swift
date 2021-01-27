@@ -35,6 +35,7 @@ enum AppPath {
             case "cashback-detail": self = .cashbackDetail
             case "pockets": self = .pockets
             case "investments":
+//                "www.plum.com/hom/investments?fund_name=tech-giants"
                 if pathComponents.count > 1, let name = pathComponents[safe: 1] {
                     self = .investments(name)
                 } else if let name = query["fund_name"] {

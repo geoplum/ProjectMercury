@@ -14,17 +14,19 @@ final class DeepLinkHandler: AppDelegateURLHandleable {
     
     // MARK: - Properties
     
-    weak var router: NavigationRoutable?
+    weak var router: TabBarRouter?
     
     // MARK: - Initializer
     
-    init() {}
+    init(router: TabBarRouter) {
+        self.router = router
+    }
     
     // MARK: - Helpers
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any]) -> Bool {
-        if let appRouteData = appRouteData(forURL: url) {
-            handle(routeData: appRouteData)
+        if let appRouteData = router?.appRouteData(forURL: url) {
+            router?.handle(routeData: appRouteData)
             return true
         } else {
             return false
@@ -32,8 +34,8 @@ final class DeepLinkHandler: AppDelegateURLHandleable {
     }
 
     func application(continue userActivity: NSUserActivity, with restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
-
-//        let activityType = userActivity.activityType
+        
+        //        let activityType = userActivity.activityType
 //
 //        if activityType == NSUserActivityTypeBrowsingWeb, let url = userActivity.webpageURL, let appRouteData = appRouteData(forURL: url) {
 //            handle(routeData: appRouteData)
@@ -61,51 +63,10 @@ final class DeepLinkHandler: AppDelegateURLHandleable {
     }
     
     func handle(_ item: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
-        if let appPath = appPath(for: item) {
-            handle(routeData: RouteData(path: appPath))
+        if let appPath = router?.appPath(for: item) {
+            router?.handle(routeData: RouteData(path: appPath))
             completionHandler(true)
         }
     }
     
-    // MARK: - AppPath handlers
-    
-    fileprivate func appPath(for item: UIApplicationShortcutItem) -> AppPath? {
-        return nil
-    }
-    
-    fileprivate func appRouteData(forURL url: URL) -> RouteData? {
-        return nil
-    }
-    
-    fileprivate func appRouteData(forPathComponents pathComponents: [String], query: [String: String] = [:]) -> RouteData? {
-        guard let path = appPath(forPathComponents: pathComponents, query: query) else {
-            return nil
-        }
-        return RouteData(path: path, parameters: query)
-    }
-    
-    fileprivate func appPath(forPathComponents pathComponents: [String], query: [String: String] = [:]) -> AppPath? {
-        let components = pathComponents.filter({ $0 != "/" && $0 != "" && $0 != "." }).map({ $0.lowercased() })
-        return AppPath(pathComponents: components, query: query)
-    }
-
-    fileprivate func handle(routeData: RouteData) {
-        router?.route(to: routeData, animated: true, completion: nil)
-    }
-}
-
-// MARK: -
-
-extension DeepLinkHandler: URLHandleable {
-    
-    // MARK: - URLHandleable
-    
-    func canHandle(_ url: URL) -> Bool {
-        return appRouteData(forURL: url) != nil
-    }
-    
-    func handle(_ url: URL) {
-        guard let appRouteData = appRouteData(forURL: url) else { return }
-        handle(routeData: appRouteData)
-    }
 }
