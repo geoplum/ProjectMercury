@@ -1,0 +1,18 @@
+/* 
+  Localizable.string.strings
+  ProjectMercury
+
+  Created by George Quentin on 11/02/2021.
+  
+*/
+
+"home_title" = "Home";
+"invite_friend_title" = "Invite";
+"cashback_title" = "Cashback";
+"cashback_detail_title" = "Cashback Detail";
+"pockets" = "Pockets";
+"cashback_title" = "Cashback";
+"lost_money_title" = "Lost Money";
+"lost_money_detail_title" = "Lost Money Detail";
+"investments_title" = "Investments";
+"tech_giants_title" = "Tech Giants";

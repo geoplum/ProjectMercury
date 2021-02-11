@@ -10,7 +10,7 @@ import Combine
 
 final class LostMoneyViewController: UIViewController {
 
-    // 5) all our view controllers need a way to talk to their coordinator/router. For larger apps you’ll want to use protocols here so that you can call the exact properties of the coordinator which will handle the routing for you.
+    // 5-) - all our view controllers need a way to talk to their coordinator/router. For larger apps you’ll want to use protocols here so that you can call the exact properties of the coordinator which will handle the routing for you.
     weak var router: Router?
     private var disposables = Set<AnyCancellable>()
     
@@ -36,7 +36,7 @@ final class LostMoneyViewController: UIViewController {
         // Lost money detail button
         let detailButton = UIButton(type: .roundedRect)
         detailButton.backgroundColor = .black
-        detailButton.setTitle("Lost Money Detail", for: .normal)
+        detailButton.setTitle("lost_money_detail_title".localized, for: .normal)
         detailButton.setTitleColor(UIColor.white, for: .normal)
         self.view.addSubview(detailButton)
         detailButton.translatesAutoresizingMaskIntoConstraints = false
@@ -54,7 +54,7 @@ final class LostMoneyViewController: UIViewController {
         // Invite button
         let inviteButton = UIButton(type: .roundedRect)
         inviteButton.backgroundColor = .black
-        inviteButton.setTitle("Invite", for: .normal)
+        inviteButton.setTitle("invite_friend_title".localized, for: .normal)
         inviteButton.setTitleColor(UIColor.white, for: .normal)
         self.view.addSubview(inviteButton)
         inviteButton.translatesAutoresizingMaskIntoConstraints = false
@@ -73,7 +73,7 @@ final class LostMoneyViewController: UIViewController {
     // MARK: - UI Setup
     
     private func setupTabBarItem() {
-        title = "Lost Money"
+        title = "lost_money_title".localized
         tabBarItem.image = UIImage(systemName: "star")?.withRenderingMode(.alwaysTemplate)
         tabBarItem.selectedImage = UIImage(systemName: "star.fill")?.withRenderingMode(.alwaysOriginal)
     }

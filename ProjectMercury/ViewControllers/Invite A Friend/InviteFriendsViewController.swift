@@ -18,7 +18,7 @@ final class InviteFriendsViewController: UIViewController {
     init(router: Router) {
         self.router = router
         super.init(nibName: nil, bundle: nil)
-        self.title = "Invite"
+        self.title = "invite_friend_title".localized
     }
     
     required init?(coder: NSCoder) {
@@ -35,7 +35,7 @@ final class InviteFriendsViewController: UIViewController {
         // Cashback detail button
         let homeButton = UIButton(type: .roundedRect)
         homeButton.backgroundColor = .black
-        homeButton.setTitle("Home", for: .normal)
+        homeButton.setTitle("home_title".localized, for: .normal)
         homeButton.setTitleColor(UIColor.white, for: .normal)
         self.view.addSubview(homeButton)
         homeButton.translatesAutoresizingMaskIntoConstraints = false

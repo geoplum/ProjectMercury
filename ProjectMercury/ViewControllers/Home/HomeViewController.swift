@@ -10,7 +10,7 @@ import Combine
 
 final class HomeViewController: UIViewController {
 
-    // 5) all our view controllers need a way to talk to their coordinator/router. For larger apps you’ll want to use protocols here so that you can call the exact properties of the coordinator which will handle the routing for you.
+    // 5-) - all our view controllers need a way to talk to their coordinator/router. For larger apps you’ll want to use protocols here so that you can call the exact properties of the coordinator which will handle the routing for you.
     weak var router: Router?
     private let viewModel: HomeViewModel
     private var disposables = Set<AnyCancellable>()
@@ -38,7 +38,7 @@ final class HomeViewController: UIViewController {
         // Pocket button
         let pocketsButton = UIButton(type: .roundedRect)
         pocketsButton.backgroundColor = .black
-        pocketsButton.setTitle("Pockets", for: .normal)
+        pocketsButton.setTitle("pockets".localized, for: .normal)
         pocketsButton.setTitleColor(UIColor.white, for: .normal)
         self.view.addSubview(pocketsButton)
         pocketsButton.translatesAutoresizingMaskIntoConstraints = false
@@ -57,7 +57,7 @@ final class HomeViewController: UIViewController {
         // Investments button
         let investmentsButton = UIButton(type: .roundedRect)
         investmentsButton.backgroundColor = .black
-        investmentsButton.setTitle("Investments", for: .normal)
+        investmentsButton.setTitle("investments_title".localized, for: .normal)
         investmentsButton.setTitleColor(UIColor.white, for: .normal)
         self.view.addSubview(investmentsButton)
         investmentsButton.translatesAutoresizingMaskIntoConstraints = false
@@ -69,13 +69,13 @@ final class HomeViewController: UIViewController {
         ])
         investmentsButton.tapPublisher
             .sink { [weak self] _ in
-                self?.router?.route(to: RouteData(path: .investments("Tech Giants")), animated: true, completion: nil)
+                self?.router?.route(to: RouteData(path: .investments("tech_giants_title".localized)), animated: true, completion: nil)
             }.store(in: &disposables)
         
         // Cashback button
         let cashbackButton = UIButton(type: .roundedRect)
         cashbackButton.backgroundColor = .black
-        cashbackButton.setTitle("Cashback", for: .normal)
+        cashbackButton.setTitle("cashback_title".localized, for: .normal)
         cashbackButton.setTitleColor(UIColor.white, for: .normal)
         self.view.addSubview(cashbackButton)
         cashbackButton.translatesAutoresizingMaskIntoConstraints = false
@@ -93,7 +93,7 @@ final class HomeViewController: UIViewController {
         // Lost money button
         let lostmoneyButton = UIButton(type: .roundedRect)
         lostmoneyButton.backgroundColor = .black
-        lostmoneyButton.setTitle("Lost money", for: .normal)
+        lostmoneyButton.setTitle("lost_money_title".localized, for: .normal)
         lostmoneyButton.setTitleColor(UIColor.white, for: .normal)
         self.view.addSubview(lostmoneyButton)
         lostmoneyButton.translatesAutoresizingMaskIntoConstraints = false
@@ -111,7 +111,7 @@ final class HomeViewController: UIViewController {
         // Invite button
         let inviteButton = UIButton(type: .roundedRect)
         inviteButton.backgroundColor = .black
-        inviteButton.setTitle("Invite", for: .normal)
+        inviteButton.setTitle("invite_friend_title".localized, for: .normal)
         inviteButton.setTitleColor(UIColor.white, for: .normal)
         self.view.addSubview(inviteButton)
         inviteButton.translatesAutoresizingMaskIntoConstraints = false
@@ -123,7 +123,7 @@ final class HomeViewController: UIViewController {
         ])
         inviteButton.tapPublisher
             .sink { [weak self] _ in
-                //6) `router.route(to:...`: all view controllers that need to communitcate with their coordinator/router to go to other screens will have this notation. The coordinator will handle these requests and show the appropriate screen depending of how the router is setup. 
+                //6-) - `router.route(to:...`: all view controllers that need to communitcate with their coordinator/router to go to other screens will have this notation. The coordinator will handle these requests and show the appropriate screen depending of how the router is setup. 
                 self?.router?.route(to: RouteData(path: .inviteFriends), animated: true, completion: nil)
             }.store(in: &disposables)
     }
@@ -131,7 +131,7 @@ final class HomeViewController: UIViewController {
     // MARK: - UI Setup
     
     private func setupTabBarItem() {
-        title = "Home"
+        title = "home_title".localized
         tabBarItem.image = UIImage(systemName: "house")?.withRenderingMode(.alwaysTemplate)
         tabBarItem.selectedImage = UIImage(systemName: "house.fill")?.withRenderingMode(.alwaysOriginal)
     }

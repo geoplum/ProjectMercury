@@ -18,7 +18,7 @@ final class CashbackDetailViewController: UIViewController {
     init(router: Router) {
         self.router = router
         super.init(nibName: nil, bundle: nil)
-        self.title = "Cashback Detail"
+        self.title = "cashback_detail_title".localized
     }
     
     required init?(coder: NSCoder) {
@@ -35,7 +35,7 @@ final class CashbackDetailViewController: UIViewController {
         // Pockets button
         let pocketsButton = UIButton(type: .roundedRect)
         pocketsButton.backgroundColor = .black
-        pocketsButton.setTitle("Pockets", for: .normal)
+        pocketsButton.setTitle("pockets".localized, for: .normal)
         pocketsButton.setTitleColor(UIColor.white, for: .normal)
         self.view.addSubview(pocketsButton)
         pocketsButton.translatesAutoresizingMaskIntoConstraints = false
