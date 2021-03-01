@@ -152,11 +152,25 @@ extension TabBarRouter: AppDelegateConfigurable {
     
     func configure(application: UIApplication, launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
         guard let delegate = application.delegate as? AppDelegate else { return }
+        
+        
+        
+        
+        let rootViewController = UIViewController()
         let mainWindow = UIWindow(frame: UIScreen.main.bounds)
         mainWindow.backgroundColor = .white
-        mainWindow.rootViewController = tabBarController
+        mainWindow.rootViewController = rootViewController//tabBarController
         delegate.window = mainWindow
         delegate.window?.makeKeyAndVisible()
+        
+        // First, add the view of the child (tabBarController) to the view of the parent (rootViewController)
+        rootViewController.view.addSubview(self.tabBarController.view)
+        
+        // Then, add the child (tabBarController) to the parent (rootViewController)
+        rootViewController.addChild(self.tabBarController)
+        
+        // Finally, notify the child (tabBarController) that it was moved to a parent (rootViewController)
+        self.tabBarController.didMove(toParent: rootViewController)
         
         // Tell router to take over
         self.startRouting()

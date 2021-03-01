@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,8 +13,9 @@
 		C728A48B25A105530000C98C /* InvestmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C728A48A25A105530000C98C /* InvestmentsViewController.swift */; };
 		C728A48F25A106B80000C98C /* InviteFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C728A48E25A106B80000C98C /* InviteFriendsViewController.swift */; };
 		C728A4AA25A10F6D0000C98C /* NavigationRoutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C728A4A925A10F6D0000C98C /* NavigationRoutable.swift */; };
-		C728A4B025A113E20000C98C /* Redux.swift in Sources */ = {isa = PBXBuildFile; fileRef = C728A4AF25A113E20000C98C /* Redux.swift */; };
 		C776E26025859A68005A9CBE /* RemoteNotificationsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C776E25F25859A68005A9CBE /* RemoteNotificationsConfigurator.swift */; };
+		C77DCD6D25EC509A008B020B /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = C77DCD6C25EC509A008B020B /* ComposableArchitecture */; };
+		C77DCD7125EC584A008B020B /* Functional.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77DCD7025EC584A008B020B /* Functional.swift */; };
 		C792FC852586C44D0078BFCB /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C792FC842586C44D0078BFCB /* NavigationController.swift */; };
 		C792FC882586C4740078BFCB /* TabBarEmbeddable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C792FC872586C4740078BFCB /* TabBarEmbeddable.swift */; };
 		C792FC8C2586C4DC0078BFCB /* NavigationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C792FC8B2586C4DC0078BFCB /* NavigationPresenter.swift */; };
@@ -25,7 +26,6 @@
 		C792FCAC2586C9980078BFCB /* CashBackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C792FCAB2586C9980078BFCB /* CashBackViewController.swift */; };
 		C792FCAF2586C9C20078BFCB /* LostMoneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C792FCAE2586C9C20078BFCB /* LostMoneyViewController.swift */; };
 		C7B89EA725AB804900E068D7 /* HomeStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B89EA625AB804900E068D7 /* HomeStore.swift */; };
-		C7B89EAB25AB811700E068D7 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B89EAA25AB811700E068D7 /* Factory.swift */; };
 		C7B89EB225AB834D00E068D7 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B89EB125AB834D00E068D7 /* HomeViewModel.swift */; };
 		C7BA4FEB25A7D884005CDB96 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C7BA4FEA25A7D883005CDB96 /* README.md */; };
 		C7BD948725D528C900B79967 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C7BD948625D528C900B79967 /* Localizable.strings */; };
@@ -69,8 +69,8 @@
 		C728A48A25A105530000C98C /* InvestmentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentsViewController.swift; sourceTree = "<group>"; };
 		C728A48E25A106B80000C98C /* InviteFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteFriendsViewController.swift; sourceTree = "<group>"; };
 		C728A4A925A10F6D0000C98C /* NavigationRoutable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationRoutable.swift; sourceTree = "<group>"; };
-		C728A4AF25A113E20000C98C /* Redux.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Redux.swift; sourceTree = "<group>"; };
 		C776E25F25859A68005A9CBE /* RemoteNotificationsConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteNotificationsConfigurator.swift; sourceTree = "<group>"; };
+		C77DCD7025EC584A008B020B /* Functional.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functional.swift; sourceTree = "<group>"; };
 		C792FC842586C44D0078BFCB /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		C792FC872586C4740078BFCB /* TabBarEmbeddable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarEmbeddable.swift; sourceTree = "<group>"; };
 		C792FC8B2586C4DC0078BFCB /* NavigationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationPresenter.swift; sourceTree = "<group>"; };
@@ -81,7 +81,6 @@
 		C792FCAB2586C9980078BFCB /* CashBackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CashBackViewController.swift; sourceTree = "<group>"; };
 		C792FCAE2586C9C20078BFCB /* LostMoneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LostMoneyViewController.swift; sourceTree = "<group>"; };
 		C7B89EA625AB804900E068D7 /* HomeStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStore.swift; sourceTree = "<group>"; };
-		C7B89EAA25AB811700E068D7 /* Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
 		C7B89EB125AB834D00E068D7 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		C7BA4FEA25A7D883005CDB96 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C7BD948625D528C900B79967 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
@@ -124,6 +123,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C77DCD6D25EC509A008B020B /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,8 +181,6 @@
 		C728A4AE25A113590000C98C /* Store */ = {
 			isa = PBXGroup;
 			children = (
-				C728A4AF25A113E20000C98C /* Redux.swift */,
-				C7B89EAA25AB811700E068D7 /* Factory.swift */,
 				C7B89EAE25AB825700E068D7 /* Home */,
 			);
 			path = Store;
@@ -355,6 +353,7 @@
 				C7CFA11725A12B1F00EFE411 /* UIControl */,
 				C7F24BEB25858DA40031A989 /* Array+Ext.swift */,
 				C7BD948A25D5297100B79967 /* String+Ext.swift */,
+				C77DCD7025EC584A008B020B /* Functional.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -393,6 +392,9 @@
 			dependencies = (
 			);
 			name = ProjectMercury;
+			packageProductDependencies = (
+				C77DCD6C25EC509A008B020B /* ComposableArchitecture */,
+			);
 			productName = ProjectMercury;
 			productReference = C7F24BAF258588030031A989 /* ProjectMercury.app */;
 			productType = "com.apple.product-type.application";
@@ -424,6 +426,9 @@
 				Base,
 			);
 			mainGroup = C7F24BA6258588030031A989;
+			packageReferences = (
+				C77DCD6B25EC509A008B020B /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+			);
 			productRefGroup = C7F24BB0258588030031A989 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -485,7 +490,6 @@
 				C792FC852586C44D0078BFCB /* NavigationController.swift in Sources */,
 				C792FCAC2586C9980078BFCB /* CashBackViewController.swift in Sources */,
 				C7F24BD025858AB40031A989 /* AppDelegateConfigurable.swift in Sources */,
-				C728A4B025A113E20000C98C /* Redux.swift in Sources */,
 				C728A48F25A106B80000C98C /* InviteFriendsViewController.swift in Sources */,
 				C792FC9B2586C71A0078BFCB /* HomeRouter.swift in Sources */,
 				C7BD948B25D5297100B79967 /* String+Ext.swift in Sources */,
@@ -500,7 +504,7 @@
 				C7F24BDC25858BAB0031A989 /* AppPath.swift in Sources */,
 				C792FCA12586C8810078BFCB /* HomeViewController.swift in Sources */,
 				C792FC882586C4740078BFCB /* TabBarEmbeddable.swift in Sources */,
-				C7B89EAB25AB811700E068D7 /* Factory.swift in Sources */,
+				C77DCD7125EC584A008B020B /* Functional.swift in Sources */,
 				C7F24BEC25858DA40031A989 /* Array+Ext.swift in Sources */,
 				C728A47C25A0F3730000C98C /* CashbackDetailViewController.swift in Sources */,
 				C7F24BCC25858A850031A989 /* AppDelegateStateTransitionable.swift in Sources */,
@@ -758,6 +762,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C77DCD6B25EC509A008B020B /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:pointfreeco/swift-composable-architecture.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.15.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C77DCD6C25EC509A008B020B /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C77DCD6B25EC509A008B020B /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C7F24BA7258588030031A989 /* Project object */;
 }

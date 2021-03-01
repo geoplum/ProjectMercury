@@ -10,6 +10,7 @@
 // https://www.hackingwithswift.com/articles/71/how-to-use-the-coordinator-pattern-in-ios-apps
 
 import Foundation
+import Combine
 
 // 1-) - Router: This is the app routing Coordinator where each route-node has a parent and potential children.
 protocol Router: class {
@@ -120,4 +121,64 @@ extension Router {
     
     func dismiss(animated: Bool, completion: (() -> Void)?) {}
     func dismissAndRoute(to appPath: RouteData, animated: Bool, completion: (() -> Void)?) {}
+}
+
+extension Publishers {
+    
+    /// Custom RouterSubscription of all router subscriptions
+    /// Find our more: https://medium.com/flawless-app-stories/swift-combine-custom-publisher-6d1cc3dc248f
+    /// https://www.swiftbysundell.com/articles/building-custom-combine-publishers-in-swift/
+    class RouterSubscription<Target: Subscriber>: Subscription where Target.Input == Void, Target.Failure == Never {
+        private let router: NavigationRoutable
+        private let route: RouteData
+        private var subscriber: Target?
+        
+        init(router: NavigationRoutable, route: RouteData, subscriber: Target) {
+            self.router = router
+            self.route = route
+            self.subscriber = subscriber
+            sendRequest()
+        }
+        
+        func request(_ demand: Subscribers.Demand) {
+            //TODO: - Optionaly Adjust The Demand
+        }
+        
+        func cancel() {
+            subscriber = nil
+        }
+        
+        private func sendRequest() {
+            guard let subscriber = subscriber else { return }
+            router.route(to: route, animated: true) {
+                _ = subscriber.receive(())
+            }
+        }
+    }
+    
+    struct RouterPublisher: Publisher {
+        typealias Output = Void
+        typealias Failure = Never
+        
+        private let router: NavigationRoutable
+        private let route: RouteData
+        
+        init(router: NavigationRoutable, route: RouteData) {
+            self.router = router
+            self.route = route
+        }
+        
+        func receive<Target: Subscriber>(subscriber: Target) where
+            RouterPublisher.Failure == Target.Failure, RouterPublisher.Output == Target.Input {
+                let subscription = RouterSubscription(router: router, route: route, subscriber: subscriber)
+                subscriber.receive(subscription: subscription)
+        }
+    }
+}
+
+extension NavigationRoutable {
+    
+    func route(to routeData: RouteData) -> Publishers.RouterPublisher {
+        return Publishers.RouterPublisher(router: self, route: routeData)
+    }
 }

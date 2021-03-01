@@ -10,16 +10,13 @@ import Combine
 
 final class HomeViewController: UIViewController {
 
-    // 5-) - all our view controllers need a way to talk to their coordinator/router. For larger apps you’ll want to use protocols here so that you can call the exact properties of the coordinator which will handle the routing for you.
-    weak var router: Router?
     private let viewModel: HomeViewModel
     private var disposables = Set<AnyCancellable>()
     
     // MARK: - Initializer
     
-    init(viewModel: HomeViewModel, router: Router) {
+    init(viewModel: HomeViewModel) {
         self.viewModel = viewModel
-        self.router = router
         super.init(nibName: nil, bundle: nil)
         setupTabBarItem()
     }
@@ -50,7 +47,7 @@ final class HomeViewController: UIViewController {
         ])
         pocketsButton.tapPublisher
             .sink { [weak self] _ in
-                self?.router?.route(to: RouteData(path: .pockets), animated: true, completion: nil)
+                self?.viewModel.homeStore.send(.open(RouteData(path: .pockets)))
             }.store(in: &disposables)
         
         
@@ -69,7 +66,7 @@ final class HomeViewController: UIViewController {
         ])
         investmentsButton.tapPublisher
             .sink { [weak self] _ in
-                self?.router?.route(to: RouteData(path: .investments("tech_giants_title".localized)), animated: true, completion: nil)
+                self?.viewModel.homeStore.send(.open(RouteData(path: .investments("tech_giants_title".localized))))
             }.store(in: &disposables)
         
         // Cashback button
@@ -87,7 +84,7 @@ final class HomeViewController: UIViewController {
         ])
         cashbackButton.tapPublisher
             .sink { [weak self] _ in
-                self?.router?.route(to: RouteData(path: .cashback), animated: true, completion: nil)
+                self?.viewModel.homeStore.send(.open(RouteData(path: .cashback)))
             }.store(in: &disposables)
         
         // Lost money button
@@ -105,7 +102,7 @@ final class HomeViewController: UIViewController {
         ])
         lostmoneyButton.tapPublisher
             .sink { [weak self] _ in
-                self?.router?.route(to: RouteData(path: .lostMoney), animated: true, completion: nil)
+                self?.viewModel.homeStore.send(.open(RouteData(path: .lostMoney)))
             }.store(in: &disposables)
         
         // Invite button
@@ -124,7 +121,7 @@ final class HomeViewController: UIViewController {
         inviteButton.tapPublisher
             .sink { [weak self] _ in
                 //6-) - `router.route(to:...`: all view controllers that need to communitcate with their coordinator/router to go to other screens will have this notation. The coordinator will handle these requests and show the appropriate screen depending of how the router is setup. 
-                self?.router?.route(to: RouteData(path: .inviteFriends), animated: true, completion: nil)
+                self?.viewModel.homeStore.send(.open(RouteData(path: .inviteFriends)))
             }.store(in: &disposables)
     }
     
