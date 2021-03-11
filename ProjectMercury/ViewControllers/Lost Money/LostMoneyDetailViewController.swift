@@ -10,13 +10,13 @@ import Combine
 
 final class LostMoneyDetailViewController: UIViewController {
 
-    weak var router: Router?
+    let storeModel: GlobalStore.StoreModel
     private var disposables = Set<AnyCancellable>()
     
     // MARK: - Initializer
     
-    init(router: Router) {
-        self.router = router
+    init(storeModel: GlobalStore.StoreModel) {
+        self.storeModel = storeModel
         super.init(nibName: nil, bundle: nil)
         self.title = "lost_money_detail_title".localized
     }
@@ -47,7 +47,7 @@ final class LostMoneyDetailViewController: UIViewController {
         ])
         pocketsButton.tapPublisher
             .sink { [weak self] _ in
-                self?.router?.route(to: RouteData(path: .pockets), animated: true, completion: nil)
+                self?.storeModel.send(.route(to: RouteData(path: .pockets)))
             }.store(in: &disposables)
     }
 

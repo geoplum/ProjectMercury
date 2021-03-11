@@ -10,13 +10,13 @@ import Combine
 
 final class InviteFriendsViewController: UIViewController {
 
-    weak var router: Router?
+    let storeModel: GlobalStore.StoreModel
     private var disposables = Set<AnyCancellable>()
     
     // MARK: - Initializer
     
-    init(router: Router) {
-        self.router = router
+    init(storeModel: GlobalStore.StoreModel) {
+        self.storeModel = storeModel
         super.init(nibName: nil, bundle: nil)
         self.title = "invite_friend_title".localized
     }
@@ -47,7 +47,7 @@ final class InviteFriendsViewController: UIViewController {
         ])
         homeButton.tapPublisher
             .sink { [weak self] _ in
-                self?.router?.dismissAndRoute(to: RouteData(path: .home), animated: true, completion: nil)
+                self?.storeModel.send(.dismissAndRoute(to: RouteData(path: .home)))
             }.store(in: &disposables)
     }
   

@@ -47,6 +47,8 @@ final class TabBarRouter: NSObject {
         return tabBarController
     }()
     
+    fileprivate lazy var globalStore = GlobalStore(router: self)
+    
     // MARK: - Initializer
     
     override init() {
@@ -61,16 +63,16 @@ final class TabBarRouter: NSObject {
         return tabItems.compactMap { (tabBarItem) -> TabRouting? in
             switch tabBarItem {
             case .home:
-                let router = HomeRouter(presenter: NavigationPresenter(), parent: self)
+                let router = HomeRouter(presenter: NavigationPresenter(), parent: self, store: globalStore)
                 router.route(to: RouteData(path: .home), animated: false, completion: nil)
                 return TabRouting(item: tabBarItem, router: router)
             case .lostmoney:
-                let router = LostMoneyRouter(presenter: NavigationPresenter(), parent: self)
+                let router = LostMoneyRouter(presenter: NavigationPresenter(), parent: self, store: globalStore)
                 router.route(to: RouteData(path: .lostMoney), animated: false, completion: nil)
                 return TabRouting(item: tabBarItem, router: router)
 
             case .cashback:
-                let router = CashBackRouter(presenter: NavigationPresenter(), parent: self)
+                let router = CashBackRouter(presenter: NavigationPresenter(), parent: self, store: globalStore)
                 router.route(to: RouteData(path: .cashback), animated: false, completion: nil)
                 return TabRouting(item: tabBarItem, router: router)
             }
@@ -152,9 +154,6 @@ extension TabBarRouter: AppDelegateConfigurable {
     
     func configure(application: UIApplication, launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
         guard let delegate = application.delegate as? AppDelegate else { return }
-        
-        
-        
         
         let rootViewController = UIViewController()
         let mainWindow = UIWindow(frame: UIScreen.main.bounds)

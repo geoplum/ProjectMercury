@@ -51,3 +51,26 @@ enum AppPath {
     }
     
 }
+
+
+// MARK: - Equatable
+
+extension AppPath: Equatable
+{
+    static func ==(lhs: AppPath, rhs: AppPath) -> Bool
+    {
+        switch (lhs, rhs)
+        {
+        case (.home, .home),
+             (.lostMoney, .lostMoney),
+             (.lostMoneyDetail, .lostMoneyDetail),
+             (.cashback, .cashback),
+             (.cashbackDetail, .cashbackDetail), (.pockets, .pockets):
+            return true
+        case (.investments(let left), investments(let right)):
+            return left == right
+        default:
+            return false
+        }
+    }
+}

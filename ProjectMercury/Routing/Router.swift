@@ -125,17 +125,17 @@ extension Router {
 
 extension Publishers {
     
-    /// Custom RouterSubscription of all router subscriptions
+    /// Custom RouterSubscription
     /// Find our more: https://medium.com/flawless-app-stories/swift-combine-custom-publisher-6d1cc3dc248f
     /// https://www.swiftbysundell.com/articles/building-custom-combine-publishers-in-swift/
     class RouterSubscription<Target: Subscriber>: Subscription where Target.Input == Void, Target.Failure == Never {
-        private let router: NavigationRoutable
-        private let route: RouteData
+        private let type: RouterPublisher.RouterPublisherType
+        private let router: Router
         private var subscriber: Target?
         
-        init(router: NavigationRoutable, route: RouteData, subscriber: Target) {
+        init(type: RouterPublisher.RouterPublisherType, router: Router, subscriber: Target) {
+            self.type = type
             self.router = router
-            self.route = route
             self.subscriber = subscriber
             sendRequest()
         }
@@ -149,36 +149,62 @@ extension Publishers {
         }
         
         private func sendRequest() {
-            guard let subscriber = subscriber else { return }
-            router.route(to: route, animated: true) {
-                _ = subscriber.receive(())
+            guard let subscriber = self.subscriber else { return }
+            switch type {
+            case let .route(data, animated):
+                router.route(to: data, animated: animated) {
+                    _ = subscriber.receive(())
+                }
+            case .dismiss(let animated):
+                router.dismiss(animated: animated) {
+                    _ = subscriber.receive(())
+                }
+            case let .dismissAndRoute(data, animated):
+                router.dismissAndRoute(to: data, animated: animated) {
+                    _ = subscriber.receive(())
+                }
             }
         }
     }
     
     struct RouterPublisher: Publisher {
+        
+        enum RouterPublisherType {
+            case route(route: RouteData, animated: Bool)
+            case dismiss(animated: Bool)
+            case dismissAndRoute(route: RouteData, animated: Bool)
+        }
+        
         typealias Output = Void
         typealias Failure = Never
         
-        private let router: NavigationRoutable
-        private let route: RouteData
+        private let type: RouterPublisherType
+        private let router: Router
         
-        init(router: NavigationRoutable, route: RouteData) {
+        init(type: RouterPublisherType, router: Router) {
+            self.type = type
             self.router = router
-            self.route = route
         }
         
         func receive<Target: Subscriber>(subscriber: Target) where
             RouterPublisher.Failure == Target.Failure, RouterPublisher.Output == Target.Input {
-                let subscription = RouterSubscription(router: router, route: route, subscriber: subscriber)
-                subscriber.receive(subscription: subscription)
+            let subscription = RouterSubscription(type: self.type, router: self.router, subscriber: subscriber)
+            subscriber.receive(subscription: subscription)
         }
     }
 }
 
-extension NavigationRoutable {
+extension Router {
     
-    func route(to routeData: RouteData) -> Publishers.RouterPublisher {
-        return Publishers.RouterPublisher(router: self, route: routeData)
+    func route(to routeData: RouteData, animated: Bool = true) -> Publishers.RouterPublisher {
+        return Publishers.RouterPublisher(type: .route(route: routeData, animated: animated), router: self)
+    }
+    
+    func dismiss(animated: Bool = true) -> Publishers.RouterPublisher {
+        return Publishers.RouterPublisher(type: .dismiss(animated: animated), router: self)
+    }
+    
+    func dismissAndRoute(to routeData: RouteData, animated: Bool = true) -> Publishers.RouterPublisher {
+        return Publishers.RouterPublisher(type: .dismissAndRoute(route: routeData, animated: animated), router: self)
     }
 }

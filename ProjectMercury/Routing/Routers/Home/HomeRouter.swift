@@ -10,47 +10,22 @@ import Combine
 import Foundation
 import UIKit
 
-typealias Store = ComposableArchitecture.Store<State, Action>
-
-struct State {
-    let router: NavigationRoutable
-}
-
-enum Action {
-    case dismiss
-    case open(RouteData)
-    case didRoute(RouteData)
-    
-}
-
-struct Environment {
-    
-}
 
 // 3-) - HomeRouter: Each class conforming to NavigationRoutable can be considered as a RouteNode, which implements its own dedicated setup and reset functions and contains a Presenter that delegates the navigation between the screens of a RouteNode.
 final class HomeRouter: NSObject {
     
+    // MARK: - HomeEnvironment
+    
+    struct HomeEnvironment: GlobalEnvironment {
+        var router: Router
+    }
+
     // MARK: - Properties
     
+    lazy var storeModel = GlobalStore.StoreModel(GlobalStore.Value(initialState: store.state, reducer: store.reducer, environment: GlobalStore.Environment(router: self)))
+    let store: GlobalStore
     let presenter: NavigationPresenter
-    let reducer = Reducer<State, Action, Environment> { state, action, environment in
-        switch action {
-        case .dismiss:
-            return Result.Publisher(Action.didRoute(RouteData(path: .home)))
-                .eraseToAnyPublisher()
-                .eraseToEffect()
-        case .open(let path):
-            return state.router.route(to: path)
-                .map { _ in Action.didRoute(path) }
-                .eraseToAnyPublisher()
-                .eraseToEffect()
-                
-        case .didRoute(let path): return .none
-        }
-    }
     
-//    lazy var store = Store(initialState: State(router: self), reducer: reducer, environment: Environment())
-
     // MARK: - NavigationRoutable properties
     
     weak var parent: Router?
@@ -58,12 +33,13 @@ final class HomeRouter: NSObject {
 
     // MARK: - Initializer
     
-    init(presenter: NavigationPresenter, parent: Router) {
+    init(presenter: NavigationPresenter, parent: Router, store: GlobalStore) {
         self.presenter = presenter
         self.parent = parent
+        self.store = store
         super.init()
         self.children = [
-            InvestmentsRouter(presenter: presenter, parent: self)
+            InvestmentsRouter(presenter: presenter, parent: self, store: self.storeModel)
         ]
     }
     
@@ -89,20 +65,10 @@ extension HomeRouter: NavigationRoutable {
             if let viewController = presenter.masterViewControllers.first(where: { $0 is HomeViewController }) {
                 presenter.popTo(viewController, animated: animated, completion: completion)
             } else {
-                let viewModel = HomeViewModel(store: HomeStore(initialState: State(router: self),
-                                                               reducer: reducer, environment: Environment()))
+                let viewModel = HomeViewModel(storeModel: self.storeModel)
                 let viewController = HomeViewController(viewModel: viewModel)
                 presenter.push(viewController, animated: animated, completion: completion)
             }
-        case .pockets:
-            // reset to pockets
-            if let viewController = presenter.masterViewControllers.first(where: { $0 is PocketsViewController }) {
-                presenter.popTo(viewController, animated: animated, completion: completion)
-            } else {
-                let viewController = PocketsViewController(router: self)
-                presenter.push(viewController, animated: animated, completion: completion)
-            }
-        
         default:
             completion?()
         }
@@ -111,8 +77,12 @@ extension HomeRouter: NavigationRoutable {
     func setupNavigation(for routeData: RouteData, animated: Bool, completion: (() -> Void)?) {
         switch routeData.path {
         case .inviteFriends:
-            let viewController = InviteFriendsViewController(router: self)
+            let viewController = InviteFriendsViewController(storeModel: self.storeModel)
             presenter.presentModal(NavigationController(rootViewController: viewController), animated: true, completion: completion)
+        case .pockets:
+            let viewController = PocketsViewController(storeModel: self.storeModel)
+            presenter.presentModal(NavigationController(rootViewController: viewController), animated: animated, completion: completion)
+        
         default:
             completion?()
         }
