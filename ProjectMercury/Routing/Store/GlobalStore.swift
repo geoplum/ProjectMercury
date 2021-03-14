@@ -6,21 +6,23 @@
 //
 
 import ComposableArchitecture
-import Foundation
+import Combine
+
+// MARK: - GlobalEnvironment
 
 protocol GlobalEnvironment {
-    var router: Router { get }
+    var router: Router { get set }
 }
+
+// MARK: - GlobalStore
 
 final class GlobalStore {
     
     // MARK: - Properties
     
-    typealias Value = Store<State, Action>
     typealias StoreModel = ViewStore<State, Action>
-    let storeModel: StoreModel
-    let state: State
-    private let value: Value
+    private var state: State
+    let storePublisher = PassthroughSubject<StorePublisher<GlobalStore.State>, Never>()    // Subject
 
     // MARK: - State
     
@@ -82,8 +84,16 @@ final class GlobalStore {
     
     init(router: Router) {
         self.state = .init()
-        self.value = Value(initialState: state, reducer: reducer, environment: Environment(router: router))
-        self.storeModel = StoreModel(value)
+        _ = self.addStoreModel(with: router)
+    }
+    
+    // MARK: - Add StoreModel
+    
+    func addStoreModel(with router: Router) -> StoreModel {
+        let newStore = Store(initialState: state, reducer: reducer, environment: Environment(router: router))
+        let model = StoreModel(newStore)
+        self.storePublisher.send(model.publisher)
+        return model
     }
 }
 

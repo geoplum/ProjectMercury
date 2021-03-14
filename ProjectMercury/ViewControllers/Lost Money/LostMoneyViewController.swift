@@ -11,12 +11,12 @@ import Combine
 final class LostMoneyViewController: UIViewController {
 
     // 5-) - all our view controllers need a way to talk to their coordinator/router. For larger apps you’ll want to use protocols here so that you can call the exact properties of the coordinator which will handle the routing for you.
-    let storeModel: GlobalStore.StoreModel
+    var storeModel: GlobalStore.StoreModel?
     private var disposables = Set<AnyCancellable>()
     
     // MARK: - Initializer
     
-    init(storeModel: GlobalStore.StoreModel) {
+    init(storeModel: GlobalStore.StoreModel?) {
         self.storeModel = storeModel
         super.init(nibName: nil, bundle: nil)
         setupTabBarItem()
@@ -48,7 +48,7 @@ final class LostMoneyViewController: UIViewController {
         ])
         detailButton.tapPublisher
             .sink { [weak self] _ in
-                self?.storeModel.send(.route(to: RouteData(path: .lostMoneyDetail)))
+                self?.storeModel?.send(.route(to: RouteData(path: .lostMoneyDetail)))
             }.store(in: &disposables)
         
         // Invite button
@@ -66,7 +66,7 @@ final class LostMoneyViewController: UIViewController {
         ])
         inviteButton.tapPublisher
             .sink { [weak self] _ in
-                self?.storeModel.send(.route(to: RouteData(path: .inviteFriends)))
+                self?.storeModel?.send(.route(to: RouteData(path: .inviteFriends)))
             }.store(in: &disposables)
     }
     

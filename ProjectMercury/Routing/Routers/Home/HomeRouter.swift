@@ -14,16 +14,9 @@ import UIKit
 // 3-) - HomeRouter: Each class conforming to NavigationRoutable can be considered as a RouteNode, which implements its own dedicated setup and reset functions and contains a Presenter that delegates the navigation between the screens of a RouteNode.
 final class HomeRouter: NSObject {
     
-    // MARK: - HomeEnvironment
-    
-    struct HomeEnvironment: GlobalEnvironment {
-        var router: Router
-    }
-
     // MARK: - Properties
     
-    lazy var storeModel = GlobalStore.StoreModel(GlobalStore.Value(initialState: store.state, reducer: store.reducer, environment: GlobalStore.Environment(router: self)))
-    let store: GlobalStore
+    var storeModel: GlobalStore.StoreModel?
     let presenter: NavigationPresenter
     
     // MARK: - NavigationRoutable properties
@@ -36,10 +29,10 @@ final class HomeRouter: NSObject {
     init(presenter: NavigationPresenter, parent: Router, store: GlobalStore) {
         self.presenter = presenter
         self.parent = parent
-        self.store = store
         super.init()
+        self.storeModel = store.addStoreModel(with: self)
         self.children = [
-            InvestmentsRouter(presenter: presenter, parent: self, store: self.storeModel)
+            InvestmentsRouter(presenter: presenter, parent: self, store: store)
         ]
     }
     

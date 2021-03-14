@@ -46,7 +46,6 @@ final class TabBarRouter: NSObject {
         tabBarController.delegate = self
         return tabBarController
     }()
-    
     fileprivate lazy var globalStore = GlobalStore(router: self)
     
     // MARK: - Initializer
@@ -54,6 +53,7 @@ final class TabBarRouter: NSObject {
     override init() {
         self.children = []
         super.init()
+        self.registerObservers()
     }
     
     // MARK: - Private setup functions
@@ -116,6 +116,14 @@ final class TabBarRouter: NSObject {
 //                self.popNavigationToRootIfNeeded()
 //            })
 //            .store(in: &cancellable)
+        
+        globalStore.storePublisher
+            .flatMap { $0 }
+            .sink { state in
+                guard let path = state.currentPath else { return }
+                print("Current path is", path)
+                
+            }.store(in: &cancellable)
     }
     
     // MARK: - Routing helpers
@@ -128,7 +136,6 @@ final class TabBarRouter: NSObject {
     
     fileprivate func startRouting() {
         buildTabBarController()
-        registerObservers()
     }
     
 }

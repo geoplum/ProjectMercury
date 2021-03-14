@@ -14,8 +14,7 @@ final class LostMoneyRouter: NSObject {
     
     // MARK: - Properties
     
-    lazy var storeModel = GlobalStore.StoreModel(GlobalStore.Value(initialState: store.state, reducer: store.reducer, environment: GlobalStore.Environment(router: self)))
-    let store: GlobalStore
+    var storeModel: GlobalStore.StoreModel?
     let presenter: NavigationPresenter
     
     // MARK: - NavigationRoutable properties
@@ -28,8 +27,8 @@ final class LostMoneyRouter: NSObject {
     init(presenter: NavigationPresenter, parent: Router, store: GlobalStore) {
         self.presenter = presenter
         self.parent = parent
-        self.store = store
         super.init()
+        self.storeModel = store.addStoreModel(with: self)
     }
 
 }
@@ -57,6 +56,13 @@ extension LostMoneyRouter: NavigationRoutable {
                 let viewController = LostMoneyViewController(storeModel: self.storeModel)
                 presenter.push(viewController, animated: animated, completion: completion)
             }
+        case .lostMoneyDetail:
+            if let viewController = presenter.masterViewControllers.first(where: { $0 is LostMoneyDetailViewController }) {
+                presenter.popTo(viewController, animated: animated, completion: completion)
+            } else {
+                let viewController = LostMoneyDetailViewController(storeModel: self.storeModel)
+                presenter.push(viewController, animated: animated, completion: completion)
+            }
         default:
             completion?()
         }
@@ -64,9 +70,6 @@ extension LostMoneyRouter: NavigationRoutable {
     
     func setupNavigation(for routeData: RouteData, animated: Bool, completion: (() -> Void)?) {
         switch routeData.path {
-        case .lostMoneyDetail:
-            let viewController = LostMoneyDetailViewController(storeModel: self.storeModel)
-            presenter.push(viewController, animated: animated, completion: completion)
         case .inviteFriends:
             let viewController = InviteFriendsViewController(storeModel: self.storeModel)
             presenter.presentModal(NavigationController(rootViewController: viewController), animated: true, completion: completion)

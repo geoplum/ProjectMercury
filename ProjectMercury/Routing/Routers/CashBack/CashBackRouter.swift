@@ -14,8 +14,7 @@ final class CashBackRouter: NSObject {
     
     // MARK: - Properties
     
-    lazy var storeModel = GlobalStore.StoreModel(GlobalStore.Value(initialState: store.state, reducer: store.reducer, environment: GlobalStore.Environment(router: self)))
-    let store: GlobalStore
+    var storeModel: GlobalStore.StoreModel?
     let presenter: NavigationPresenter
     
     // MARK: - NavigationRoutable properties
@@ -28,8 +27,8 @@ final class CashBackRouter: NSObject {
     init(presenter: NavigationPresenter, parent: Router, store: GlobalStore) {
         self.presenter = presenter
         self.parent = parent
-        self.store = store
         super.init()
+        self.storeModel = store.addStoreModel(with: self)
     }
     
 }

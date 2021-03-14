@@ -13,8 +13,8 @@ final class InvestmentsRouter: NSObject {
     
     // MARK: - Properties
     
+    var storeModel: GlobalStore.StoreModel?
     let presenter: NavigationPresenter
-    let storeModel: GlobalStore.StoreModel
 
     // MARK: - NavigationRoutable properties
     
@@ -23,11 +23,11 @@ final class InvestmentsRouter: NSObject {
 
     // MARK: - Initializer
     
-    init(presenter: NavigationPresenter, parent: NavigationRoutable, store: GlobalStore.StoreModel) {
+    init(presenter: NavigationPresenter, parent: NavigationRoutable, store: GlobalStore) {
         self.presenter = presenter
         self.parent = parent
-        self.storeModel = store
         super.init()
+        self.storeModel = store.addStoreModel(with: self)
     }
     
 }

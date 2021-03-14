@@ -47,7 +47,7 @@ final class HomeViewController: UIViewController {
         ])
         pocketsButton.tapPublisher
             .sink { [weak self] _ in
-                self?.viewModel.storeModel.send(.route(to: RouteData(path: .pockets)))
+                self?.viewModel.storeModel?.send(.route(to: RouteData(path: .pockets)))
             }.store(in: &disposables)
         
         
@@ -66,7 +66,7 @@ final class HomeViewController: UIViewController {
         ])
         investmentsButton.tapPublisher
             .sink { [weak self] _ in
-                self?.viewModel.storeModel.send(.route(to: RouteData(path: .investments("tech_giants_title".localized))))
+                self?.viewModel.storeModel?.send(.route(to: RouteData(path: .investments("tech_giants_title".localized))))
             }.store(in: &disposables)
         
         // Cashback button
@@ -84,7 +84,7 @@ final class HomeViewController: UIViewController {
         ])
         cashbackButton.tapPublisher
             .sink { [weak self] _ in
-                self?.viewModel.storeModel.send(.route(to: RouteData(path: .cashback)))
+                self?.viewModel.storeModel?.send(.route(to: RouteData(path: .cashback)))
             }.store(in: &disposables)
         
         // Lost money button
@@ -102,7 +102,7 @@ final class HomeViewController: UIViewController {
         ])
         lostmoneyButton.tapPublisher
             .sink { [weak self] _ in
-                self?.viewModel.storeModel.send(.route(to: RouteData(path: .lostMoney)))
+                self?.viewModel.storeModel?.send(.route(to: RouteData(path: .lostMoney)))
             }.store(in: &disposables)
         
         // Invite button
@@ -121,7 +121,7 @@ final class HomeViewController: UIViewController {
         inviteButton.tapPublisher
             .sink { [weak self] _ in
                 //6-) - `router.route(to:...`: all view controllers that need to communitcate with their coordinator/router to go to other screens will have this notation. The coordinator will handle these requests and show the appropriate screen depending of how the router is setup. 
-                self?.viewModel.storeModel.send(.route(to: RouteData(path: .inviteFriends)))
+                self?.viewModel.storeModel?.send(.route(to: RouteData(path: .inviteFriends)))
             }.store(in: &disposables)
     }
     

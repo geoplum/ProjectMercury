@@ -12,12 +12,12 @@ import Combine
 final class PocketsViewController: UIViewController {
 
     // 5-) - all our view controllers need a way to talk to their coordinator/router. For larger apps you’ll want to use protocols here so that you can call the exact properties of the coordinator which will handle the routing for you.
-    let storeModel: GlobalStore.StoreModel
+    var storeModel: GlobalStore.StoreModel?
     private var disposables = Set<AnyCancellable>()
     
     // MARK: - Initializer
     
-    init(storeModel: GlobalStore.StoreModel) {
+    init(storeModel: GlobalStore.StoreModel?) {
         self.storeModel = storeModel
         super.init(nibName: nil, bundle: nil)
         self.title = "pockets".localized
@@ -50,7 +50,7 @@ final class PocketsViewController: UIViewController {
         ])
         lostMoneyButton.tapPublisher
             .sink { [weak self] _ in
-                self?.storeModel.send(.dismissAndRoute(to: RouteData(path: .lostMoneyDetail)))
+                self?.storeModel?.send(.dismissAndRoute(to: RouteData(path: .lostMoneyDetail)))
             }.store(in: &disposables)
     }
   
