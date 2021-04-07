@@ -14,7 +14,7 @@ final class CashBackRouter: NSObject {
     
     // MARK: - Properties
     
-    var storeModel: GlobalStore.StoreModel?
+    var storeModel: RouterStore.StoreModel?
     let presenter: NavigationPresenter
     
     // MARK: - NavigationRoutable properties
@@ -24,7 +24,7 @@ final class CashBackRouter: NSObject {
 
     // MARK: - Initializer
     
-    init(presenter: NavigationPresenter, parent: Router, store: GlobalStore) {
+    init(presenter: NavigationPresenter, parent: Router, store: RouterStore) {
         self.presenter = presenter
         self.parent = parent
         super.init()
@@ -50,7 +50,7 @@ extension CashBackRouter: NavigationRoutable {
         switch routeData.path {
         case .cashback:
             // reset to cashback
-            if let viewController = presenter.masterViewControllers.first(where: { $0 is CashBackViewController }) {
+            if let viewController = presenter.firstController(ofType: CashBackViewController.self) {
                 presenter.popTo(viewController, animated: animated, completion: completion)
             } else {
                 let viewController = CashBackViewController(storeModel: self.storeModel)

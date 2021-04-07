@@ -10,9 +10,9 @@ import Combine
 class HomeViewModel {
     
     // 5-) - all our view controllers need a way to talk to their coordinator/router, and the StoreModel provides that communication.
-    var storeModel: GlobalStore.StoreModel?
+    var storeModel: RouterStore.StoreModel?
     
-    init(storeModel: GlobalStore.StoreModel?) {
+    init(storeModel: RouterStore.StoreModel?) {
         self.storeModel = storeModel
     }
     

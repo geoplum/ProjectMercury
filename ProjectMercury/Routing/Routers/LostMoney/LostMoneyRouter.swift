@@ -14,7 +14,7 @@ final class LostMoneyRouter: NSObject {
     
     // MARK: - Properties
     
-    var storeModel: GlobalStore.StoreModel?
+    var storeModel: RouterStore.StoreModel?
     let presenter: NavigationPresenter
     
     // MARK: - NavigationRoutable properties
@@ -24,7 +24,7 @@ final class LostMoneyRouter: NSObject {
 
     // MARK: - Initializer
     
-    init(presenter: NavigationPresenter, parent: Router, store: GlobalStore) {
+    init(presenter: NavigationPresenter, parent: Router, store: RouterStore) {
         self.presenter = presenter
         self.parent = parent
         super.init()
@@ -50,14 +50,14 @@ extension LostMoneyRouter: NavigationRoutable {
         switch routeData.path {
         case .lostMoney:
             // reset to lost money
-            if let viewController = presenter.masterViewControllers.first(where: { $0 is LostMoneyViewController }) {
+            if let viewController = presenter.firstController(ofType: LostMoneyViewController.self) {
                 presenter.popTo(viewController, animated: animated, completion: completion)
             } else {
                 let viewController = LostMoneyViewController(storeModel: self.storeModel)
                 presenter.push(viewController, animated: animated, completion: completion)
             }
         case .lostMoneyDetail:
-            if let viewController = presenter.masterViewControllers.first(where: { $0 is LostMoneyDetailViewController }) {
+            if let viewController = presenter.firstController(ofType: LostMoneyDetailViewController.self) {
                 presenter.popTo(viewController, animated: animated, completion: completion)
             } else {
                 let viewController = LostMoneyDetailViewController(storeModel: self.storeModel)

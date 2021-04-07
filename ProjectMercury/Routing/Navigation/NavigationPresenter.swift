@@ -130,6 +130,9 @@ final class NavigationPresenter: UIViewController {
         })
     }
     
+    func firstController(ofType type: AnyClass) -> UIViewController? {
+        return self.masterViewControllers.first(where: { $0.isKind(of: type) })
+    }
 }
 
 // MARK: -

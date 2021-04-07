@@ -16,7 +16,7 @@ final class HomeRouter: NSObject {
     
     // MARK: - Properties
     
-    var storeModel: GlobalStore.StoreModel?
+    var storeModel: RouterStore.StoreModel?
     let presenter: NavigationPresenter
     
     // MARK: - NavigationRoutable properties
@@ -26,7 +26,7 @@ final class HomeRouter: NSObject {
 
     // MARK: - Initializer
     
-    init(presenter: NavigationPresenter, parent: Router, store: GlobalStore) {
+    init(presenter: NavigationPresenter, parent: Router, store: RouterStore) {
         self.presenter = presenter
         self.parent = parent
         super.init()
@@ -55,7 +55,7 @@ extension HomeRouter: NavigationRoutable {
         switch routeData.path {
         case .home:
             // reset to home
-            if let viewController = presenter.masterViewControllers.first(where: { $0 is HomeViewController }) {
+            if let viewController = presenter.firstController(ofType: HomeViewController.self) {
                 presenter.popTo(viewController, animated: animated, completion: completion)
             } else {
                 let viewModel = HomeViewModel(storeModel: self.storeModel)

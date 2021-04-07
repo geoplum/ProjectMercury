@@ -10,12 +10,12 @@ import Combine
 
 final class LostMoneyDetailViewController: UIViewController {
 
-    var storeModel: GlobalStore.StoreModel?
+    var storeModel: RouterStore.StoreModel?
     private var disposables = Set<AnyCancellable>()
     
     // MARK: - Initializer
     
-    init(storeModel: GlobalStore.StoreModel?) {
+    init(storeModel: RouterStore.StoreModel?) {
         self.storeModel = storeModel
         super.init(nibName: nil, bundle: nil)
         self.title = "lost_money_detail_title".localized

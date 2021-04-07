@@ -46,7 +46,7 @@ final class TabBarRouter: NSObject {
         tabBarController.delegate = self
         return tabBarController
     }()
-    fileprivate lazy var globalStore = GlobalStore(router: self)
+    fileprivate lazy var globalStore = RouterStore(router: self)
     
     // MARK: - Initializer
     

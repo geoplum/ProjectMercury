@@ -10,7 +10,7 @@ import Foundation
 // 2-) - NavigationRoutable: This is an extension of the router which holds the Presenter object that is used to present and push  UIViewControllers.
 protocol NavigationRoutable: Router {
     
-    var storeModel: GlobalStore.StoreModel? { get }
+    var storeModel: RouterStore.StoreModel? { get }
     var presenter: NavigationPresenter { get }
 }
 

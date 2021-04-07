@@ -13,7 +13,7 @@
 		C728A48B25A105530000C98C /* InvestmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C728A48A25A105530000C98C /* InvestmentsViewController.swift */; };
 		C728A48F25A106B80000C98C /* InviteFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C728A48E25A106B80000C98C /* InviteFriendsViewController.swift */; };
 		C728A4AA25A10F6D0000C98C /* NavigationRoutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C728A4A925A10F6D0000C98C /* NavigationRoutable.swift */; };
-		C76EB70625FAC6200076BA31 /* GlobalStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76EB70525FAC6200076BA31 /* GlobalStore.swift */; };
+		C76EB70625FAC6200076BA31 /* RouterStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76EB70525FAC6200076BA31 /* RouterStore.swift */; };
 		C776E26025859A68005A9CBE /* RemoteNotificationsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C776E25F25859A68005A9CBE /* RemoteNotificationsConfigurator.swift */; };
 		C77DCD6D25EC509A008B020B /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = C77DCD6C25EC509A008B020B /* ComposableArchitecture */; };
 		C77DCD7125EC584A008B020B /* Functional.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77DCD7025EC584A008B020B /* Functional.swift */; };
@@ -69,7 +69,7 @@
 		C728A48A25A105530000C98C /* InvestmentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestmentsViewController.swift; sourceTree = "<group>"; };
 		C728A48E25A106B80000C98C /* InviteFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteFriendsViewController.swift; sourceTree = "<group>"; };
 		C728A4A925A10F6D0000C98C /* NavigationRoutable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationRoutable.swift; sourceTree = "<group>"; };
-		C76EB70525FAC6200076BA31 /* GlobalStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalStore.swift; sourceTree = "<group>"; };
+		C76EB70525FAC6200076BA31 /* RouterStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterStore.swift; sourceTree = "<group>"; };
 		C776E25F25859A68005A9CBE /* RemoteNotificationsConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteNotificationsConfigurator.swift; sourceTree = "<group>"; };
 		C77DCD7025EC584A008B020B /* Functional.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functional.swift; sourceTree = "<group>"; };
 		C792FC842586C44D0078BFCB /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
@@ -181,7 +181,6 @@
 		C728A4AE25A113590000C98C /* Store */ = {
 			isa = PBXGroup;
 			children = (
-				C76EB70525FAC6200076BA31 /* GlobalStore.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -324,6 +323,7 @@
 				C7F24BDB25858BAB0031A989 /* AppPath.swift */,
 				C7F24BE625858C280031A989 /* Router.swift */,
 				C7F24BDF25858BBC0031A989 /* RouteData.swift */,
+				C76EB70525FAC6200076BA31 /* RouterStore.swift */,
 			);
 			path = Routing;
 			sourceTree = "<group>";
@@ -469,7 +469,7 @@
 			files = (
 				C728A47825A0F35F0000C98C /* LostMoneyDetailViewController.swift in Sources */,
 				C728A48B25A105530000C98C /* InvestmentsViewController.swift in Sources */,
-				C76EB70625FAC6200076BA31 /* GlobalStore.swift in Sources */,
+				C76EB70625FAC6200076BA31 /* RouterStore.swift in Sources */,
 				C792FCA62586C9310078BFCB /* LostMoneyRouter.swift in Sources */,
 				C792FCAF2586C9C20078BFCB /* LostMoneyViewController.swift in Sources */,
 				C792FC8C2586C4DC0078BFCB /* NavigationPresenter.swift in Sources */,

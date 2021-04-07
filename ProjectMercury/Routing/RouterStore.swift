@@ -8,21 +8,13 @@
 import ComposableArchitecture
 import Combine
 
-// MARK: - GlobalEnvironment
-
-protocol GlobalEnvironment {
-    var router: Router { get set }
-}
-
-// MARK: - GlobalStore
-
-final class GlobalStore {
+final class RouterStore {
     
     // MARK: - Properties
     
     typealias StoreModel = ViewStore<State, Action>
     private var state: State
-    let storePublisher = PassthroughSubject<StorePublisher<GlobalStore.State>, Never>()    // Subject
+    let storePublisher = PassthroughSubject<StorePublisher<State>, Never>()    // Subject
 
     // MARK: - State
     
@@ -43,14 +35,14 @@ final class GlobalStore {
 
     // MARK: - Environment
     
-    struct Environment: GlobalEnvironment {
+    struct Environment {
         var router: Router
     }
     
     // MARK: - Reducer
     
-    let reducer: Reducer<State, Action, GlobalEnvironment> = .combine(
-        Reducer<State, Action, GlobalEnvironment> { state, action, environment in
+    let reducer: Reducer<State, Action, Environment> = .combine(
+        Reducer<State, Action, Environment> { state, action, environment in
             switch action
             {
             case .route(let data):

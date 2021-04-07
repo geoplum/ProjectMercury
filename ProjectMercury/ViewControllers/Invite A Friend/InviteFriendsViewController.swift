@@ -10,12 +10,12 @@ import Combine
 
 final class InviteFriendsViewController: UIViewController {
 
-    var storeModel: GlobalStore.StoreModel?
+    var storeModel: RouterStore.StoreModel?
     private var disposables = Set<AnyCancellable>()
     
     // MARK: - Initializer
     
-    init(storeModel: GlobalStore.StoreModel?) {
+    init(storeModel: RouterStore.StoreModel?) {
         self.storeModel = storeModel
         super.init(nibName: nil, bundle: nil)
         self.title = "invite_friend_title".localized

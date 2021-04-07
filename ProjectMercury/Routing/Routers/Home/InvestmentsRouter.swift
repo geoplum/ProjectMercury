@@ -13,7 +13,7 @@ final class InvestmentsRouter: NSObject {
     
     // MARK: - Properties
     
-    var storeModel: GlobalStore.StoreModel?
+    var storeModel: RouterStore.StoreModel?
     let presenter: NavigationPresenter
 
     // MARK: - NavigationRoutable properties
@@ -23,7 +23,7 @@ final class InvestmentsRouter: NSObject {
 
     // MARK: - Initializer
     
-    init(presenter: NavigationPresenter, parent: NavigationRoutable, store: GlobalStore) {
+    init(presenter: NavigationPresenter, parent: NavigationRoutable, store: RouterStore) {
         self.presenter = presenter
         self.parent = parent
         super.init()
@@ -49,7 +49,7 @@ extension InvestmentsRouter: NavigationRoutable {
         switch routeData.path {
         case .investments(let name):
             // reset to invesments
-            if let viewController = presenter.masterViewControllers.first(where: { $0 is InvestmentsViewController }) {
+            if let viewController = presenter.firstController(ofType: InvestmentsViewController.self) {
                 presenter.popTo(viewController, animated: animated, completion: completion)
             } else {
                 let viewController = InvestmentsViewController(title: name, storeModel: self.storeModel)
